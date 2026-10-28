@@ -25,6 +25,6 @@ Run `npm run build` to check the production build locally. It creates `dist/` an
 
 ## Download links and credits
 
-Edit public links in `showcase/site.config.js`. The APK button points to the `rowell-1.4.8` release in [the app repository](https://github.com/Dling11/monster_hunter_tri_emulator). The separate game button opens the provided external MediaFire link. Game files are not included in this repository.
+Edit public links in `showcase/site.config.js`. The APK button points to the `rowell-1.4.12` release in [the app repository](https://github.com/Dling11/monster_hunter_tri_emulator). The separate game button opens the provided external MediaFire link. Game files are not included in this repository.
 
 Page maintained by Rowell / [Nikushimi](https://www.youtube.com/@Nikushimi-19/videos). The app builds on OceanTriRecomp and its contributors; see the [full app credits](https://github.com/Dling11/monster_hunter_tri_emulator/blob/main/CREDITS.md). Monster Hunter Tri and its game artwork belong to CAPCOM. This is an unofficial fan page.

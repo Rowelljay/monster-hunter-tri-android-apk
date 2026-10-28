@@ -25,7 +25,7 @@ Run `npm run build` to check the production build locally. It creates `dist/` an
 
 ## Download links and credits
 
-Downloads are available again for the tutorial. The APK button uses the matching `rowell-1.4.13` release in the [app repository](https://github.com/Dling11/monster_hunter_tri_emulator). The separate game-file button opens [Romsfun](https://romsfun.com/download/monster-hunter-3-tri-id1-13483/2), replacing the previous MediaFire destination.
+Downloads are temporarily paused. The website shows a pause notice, and APK/game targets are null in showcase/site.config.js. GitHub release files are retained as drafts for later restoration.
 
 Public targets are in `showcase/site.config.js` with HTML fallbacks in `showcase/index.html`. The selected game URL is also saved in `config/download-links.json`; keep these values consistent when changing destinations. Game files are not included in this repository. Older app releases remain unpublished.
 

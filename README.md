@@ -25,6 +25,8 @@ Run `npm run build` to check the production build locally. It creates `dist/` an
 
 ## Download links and credits
 
-Downloads are temporarily paused. The public page shows a pause notice, and `apk` and `game` are `null` in `showcase/site.config.js`. Restore the download cards and URLs from the preceding commit only when downloads are ready to resume. The [app source repository](https://github.com/Dling11/monster_hunter_tri_emulator) remains available. Game files are not included in this repository.
+Downloads are temporarily paused. The public page shows a pause notice, and `apk` and `game` are `null` in `showcase/site.config.js`. The replacement game-file destination is saved in `config/download-links.json`: [Romsfun](https://romsfun.com/download/monster-hunter-3-tri-id1-13483/2). This saved configuration is not copied into the public site.
+
+When downloads resume, restore the cards and use the saved Romsfun URL for the game button and its HTML fallback, with Romsfun as the provider label. Use the matching published release for the APK. Do not restore the old MediaFire URL from Git history. The [app source repository](https://github.com/Dling11/monster_hunter_tri_emulator) remains available. Game files are not included in this repository.
 
 Page maintained by Rowell / [Nikushimi](https://www.youtube.com/@Nikushimi-19/videos). The app builds on OceanTriRecomp and its contributors; see the [full app credits](https://github.com/Dling11/monster_hunter_tri_emulator/blob/main/CREDITS.md). Monster Hunter Tri and its game artwork belong to CAPCOM. This is an unofficial fan page.

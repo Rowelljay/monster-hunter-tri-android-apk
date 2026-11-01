@@ -2,11 +2,25 @@
 
 A compact Android and Windows download page for **MH Tri - Rowell**, with a separate experimental **MH3 - Low Spec** entry, setup instructions and contributor credits. Dark mode is the default, with an optional light theme.
 
+Game tabs also include **MH4 Ultimate · Coming soon**. The selected game has its own downloads, source links, metadata and credits. MH4U has no public APK or game-file download on this page.
+
+## Game links
+
+| Link | Opens |
+| --- | --- |
+| `/` | Monster Hunter Tri (the default for existing tutorial links) |
+| `/mh4u/` | MH4 Ultimate, including without JavaScript |
+| `/?game=mh4u` | MH4 Ultimate automatically when JavaScript is available |
+
+Use **Copy link** beside the tabs to share the selected game. Tabs switch immediately, update the address and support browser Back/Forward and keyboard arrow keys. Native links still open the separate game entry pages without JavaScript. Both entries are generated from one template and use the same small CSS/JS files.
+
 Built with static HTML, CSS and JavaScript. No framework, database, environment variables or Docker is required.
 
 ## Local preview
 
 With Node.js 20 or newer, run `npm run showcase` and open the printed address. You can also open `showcase/index.html` directly or use `OPEN-SHOWCASE.cmd` on Windows.
+
+Use the preview server to test `/mh4u/`, refreshes and copied links. Opening the HTML directly is only a basic local view.
 
 ## Deploy to Vercel
 

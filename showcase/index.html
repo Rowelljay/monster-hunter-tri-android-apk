@@ -1,5 +1,5 @@
 <!doctype html>
-<html lang="en" data-theme="dark">
+<html lang="en" data-theme="dark" data-game="tri">
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
@@ -7,9 +7,12 @@
   <meta name="robots" content="noindex, nofollow">
   <meta name="description" content="Monster Hunter Tri for Android and Windows. Choose the 64-bit app or explore the experimental 32-bit Low Spec edition.">
   <title>MH Tri - Rowell · Download page showcase</title>
+  <meta property="og:title" content="Monster Hunter Tri · Downloads">
+  <meta property="og:description" content="Monster Hunter downloads and setup instructions.">
+  <link rel="canonical" href="https://monster-hunter-tri-android-apk.vercel.app/">
   <link rel="icon" href="assets/mh-tri-icon.png" type="image/png">
+  <script src="site.config.js"></script>
   <link rel="stylesheet" href="styles.css">
-  <script src="site.config.js" defer></script>
   <script src="app.js" defer></script>
 </head>
 <body>
@@ -17,6 +20,7 @@
   <svg class="symbol-library" aria-hidden="true" xmlns="http://www.w3.org/2000/svg"><defs>
     <symbol id="download" viewBox="0 0 24 24"><path d="M12 3v12m-5-5 5 5 5-5M4 16v5h16v-5"/></symbol>
     <symbol id="external" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6L10 14M10 4H4v16h16v-6"/></symbol>
+    <symbol id="copy" viewBox="0 0 24 24"><rect x="8" y="8" width="12" height="13" rx="2"/><path d="M16 8V5a2 2 0 0 0-2-2H5a2 2 0 0 0-2 2v9a2 2 0 0 0 2 2h3"/></symbol>
     <symbol id="file" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5Zm0 0v6h5M8 13h8m-8 4h5"/></symbol>
     <symbol id="phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></symbol>
     <symbol id="monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></symbol>
@@ -30,19 +34,29 @@
   <div class="page-shell">
     <nav class="topbar" aria-label="Creator links">
       <a class="creator" data-link="youtube" href="https://www.youtube.com/@Nikushimi-19/videos" target="_blank" rel="noopener noreferrer"><span class="creator-mark" aria-hidden="true">N</span><span>Nikushimi</span></a>
-      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light theme" aria-pressed="false"><svg><use href="#sun"/></svg><span>Light mode</span></button>
+      <button id="theme-toggle" class="theme-toggle" type="button" aria-label="Switch to light mode" aria-pressed="false"><svg><use href="#sun"/></svg><span>Light mode</span></button>
     </nav>
 
     <main id="main">
       <header class="hero">
-        <img class="game-icon" src="assets/mh-tri-icon.png" alt="Monster Hunter Tri" width="80" height="80">
+        <div class="hero-art"><img class="game-icon" data-hero-game="tri" src="assets/mh-tri-icon.png" alt="Monster Hunter Tri" width="80" height="80"><span class="game-icon mh4-mark" data-hero-game="mh4u" aria-hidden="true">IV<span>ULTIMATE</span></span></div>
         <div class="hero-copy">
           <p class="eyebrow">ANDROID &amp; WINDOWS DOWNLOADS</p>
-          <h1>Monster Hunter Tri</h1>
+          <h1><span data-hero-game="tri">Monster Hunter Tri</span><span data-hero-game="mh4u">Monster Hunter 4 Ultimate</span></h1>
           <p class="hero-description">Choose your app. Follow the setup guide.</p>
         </div>
       </header>
 
+      <div class="game-switcher">
+        <nav class="game-tabs" aria-label="Choose a game">
+          <a id="tab-tri" data-game-link="tri" href="./" aria-current="page">MH Tri</a>
+          <a id="tab-mh4u" data-game-link="mh4u" href="./mh4u/">MH4 Ultimate<span class="tab-status">Coming soon</span></a>
+        </nav>
+        <button class="copy-game-link" data-copy-game-link type="button" aria-label="Copy link to the selected game" title="Copy link to this game"><svg><use href="#copy"/></svg><span>Copy link</span></button>
+        <span class="sr-only" id="copy-status" role="status"></span>
+      </div>
+
+      <section class="game-panel" id="game-tri" data-game-panel="tri" aria-labelledby="tab-tri">
       <section class="downloads" aria-label="Monster Hunter Tri downloads">
         <div class="section-heading"><span class="step-number">1</span><h2>Choose your app</h2></div>
         <div class="app-options">
@@ -88,14 +102,35 @@
       </details>
 
       <a class="source-link" data-link="source" href="https://github.com/Dling11/monster_hunter_tri_emulator" target="_blank" rel="noopener noreferrer"><span><svg><use href="#code"/></svg><span>Source code &amp; updates</span></span><svg><use href="#external"/></svg></a>
+      <p class="project-credits">Built on OceanTriRecomp and its contributors. <a data-link="credits" href="https://github.com/Dling11/monster_hunter_tri_emulator/blob/main/CREDITS.md" target="_blank" rel="noopener noreferrer">Full credits</a></p>
+      </section>
+
+      <section class="game-panel" id="game-mh4u" data-game-panel="mh4u" aria-labelledby="tab-mh4u">
+        <article class="download-card upcoming-card" aria-labelledby="mh4u-title">
+          <div class="card-heading"><span class="step-label">ANDROID APP</span><span class="status-pill">In testing</span></div>
+          <div class="upcoming-layout">
+            <div>
+              <h2 id="mh4u-title">Monster Hunter 4 Ultimate</h2>
+              <p class="game-description">A customized Android app with landscape layouts, a touch-control editor and combo buttons.</p>
+              <ul class="features" aria-label="MH4U app features"><li>Landscape layouts</li><li>Touch editor</li><li>Combo buttons</li></ul>
+            </div>
+            <div class="upcoming-download">
+              <button class="button secondary-button unavailable" type="button" disabled><svg><use href="#download"/></svg><span>APK coming soon</span></button>
+              <p class="compatibility-note">There is no public APK yet. Downloads and setup instructions will appear here when the build is ready to share.</p>
+            </div>
+          </div>
+        </article>
+        <a class="source-link" data-link="source" href="https://github.com/Dling11/MH4-ULTIMATE" target="_blank" rel="noopener noreferrer"><span><svg><use href="#code"/></svg><span>Source code &amp; updates</span></span><svg><use href="#external"/></svg></a>
+        <p class="project-credits">Built on AzaharPlus and the MH4U community projects. <a data-link="credits" href="https://github.com/Dling11/MH4-ULTIMATE/blob/main/CREDITS.md" target="_blank" rel="noopener noreferrer">Full credits</a></p>
+      </section>
 
       <footer>
         <div class="footer-links"><a data-link="youtube" href="https://www.youtube.com/@Nikushimi-19/videos" target="_blank" rel="noopener noreferrer"><svg><use href="#play"/></svg>YouTube</a><span aria-hidden="true">·</span><a data-link="support" href="https://support-page-donation.vercel.app" target="_blank" rel="noopener noreferrer"><svg><use href="#heart"/></svg>Support the channel</a></div>
         <p>A fan project, maintained by Rowell.</p>
-        <p class="credits">Built on OceanTriRecomp and its contributors. <a data-link="credits" href="https://github.com/Dling11/monster_hunter_tri_emulator/blob/main/CREDITS.md" target="_blank" rel="noopener noreferrer">Full credits</a><br>Monster Hunter Tri belongs to CAPCOM. This is an unofficial fan page.</p>
+        <p class="credits">Monster Hunter and its game artwork belong to CAPCOM. This is an unofficial fan page.</p>
+        <p class="preview-note">DESIGN SHOWCASE · LOCAL PREVIEW · NOT PUBLISHED</p>
       </footer>
     </main>
-    <p class="preview-note">DESIGN SHOWCASE · LOCAL PREVIEW · NOT PUBLISHED</p>
   </div>
 </body>
 </html>

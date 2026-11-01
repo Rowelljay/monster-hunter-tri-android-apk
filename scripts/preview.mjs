@@ -2,8 +2,10 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { resolve, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
+import { readSiteConfig,renderPage } from './render-page.mjs';
 
-const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', 'showcase');
+const production=process.argv.includes('--production');
+const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', production?'dist':'showcase');
 const host = '127.0.0.1';
 const port = Number(process.env.PORT || 4188);
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon' };
@@ -15,19 +17,25 @@ const server = http.createServer(async (request, response) => {
       response.writeHead(405, { Allow: 'GET, HEAD' });
       return response.end('Method not allowed.');
     }
-    const requested = decodeURIComponent(new URL(request.url, `http://${host}:${port}`).pathname).replace(/^\/+/, '') || 'index.html';
+    const pathname=decodeURIComponent(new URL(request.url, `http://${host}:${port}`).pathname).replace(/^\/+/, '');
+    const config=readSiteConfig(await readFile(resolve(root,'site.config.js'),'utf8'));
+    const gameId=Object.keys(config.games).find(id=>{
+      const entry=config.games[id].entry;
+      return pathname===entry||pathname===`${entry}index.html`||(entry&&pathname===entry.slice(0,-1));
+    });
+    const requested=gameId?'index.html':pathname;
     const segments = requested.split('/');
     if (segments.some(segment => segment === '..' || segment.startsWith('.')) || requested.includes('\\') || requested.includes('\0')
       || (!allowed.has(requested) && !requested.startsWith('assets/')) || !types[extname(requested).toLowerCase()]) {
       response.writeHead(404);
       return response.end('Not found.');
     }
-    const target = resolve(root, requested);
+    const target=resolve(root,production&&gameId?`${config.games[gameId].entry}index.html`:requested);
     if (!target.startsWith(root + '/assets/') && !target.startsWith(root + '\\assets\\') && !allowed.has(requested)) {
       response.writeHead(404);
       return response.end('Not found.');
     }
-    const file = await readFile(target);
+    const file=gameId&&!production?Buffer.from(renderPage(await readFile(target,'utf8'),gameId,config)):await readFile(target);
     response.writeHead(200, {
       'Content-Type': types[extname(target).toLowerCase()],
       'Content-Length': file.length,

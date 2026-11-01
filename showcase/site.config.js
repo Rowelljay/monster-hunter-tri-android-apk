@@ -15,12 +15,14 @@ window.TRI_DOWNLOADS=Object.freeze({
 // Each game has its own entry page, links and metadata. No installer is inferred.
 window.HUNTER_GAMES=Object.freeze({
   tri:Object.freeze({
+    visible:true,
     title:'Monster Hunter Tri',
     description:'Monster Hunter Tri for Android and Windows. App downloads, experimental Low Spec information and setup instructions.',
     entry:'',
     links:window.TRI_DOWNLOADS,
   }),
   mh4u:Object.freeze({
+    visible:false,
     title:'Monster Hunter 4 Ultimate',
     description:'Monster Hunter 4 Ultimate on Android. Explore the community app project; APK downloads and installation instructions are coming later.',
     entry:'mh4u/',
@@ -33,10 +35,10 @@ window.HUNTER_GAMES=Object.freeze({
 window.resolveHunterGame=(address)=>{
   const url=new URL(address);
   const query=url.searchParams.get('game');
-  if(query!==null)return Object.hasOwn(window.HUNTER_GAMES,query)?query:'tri';
+  if(query!==null)return Object.hasOwn(window.HUNTER_GAMES,query)&&window.HUNTER_GAMES[query].visible?query:'tri';
   return Object.keys(window.HUNTER_GAMES).find(id=>{
     const entry=window.HUNTER_GAMES[id].entry;
-    return entry&&(url.pathname.endsWith(`/${entry}`)||url.pathname.endsWith(`/${entry}index.html`)||url.pathname.endsWith(`/${entry.slice(0,-1)}`));
+    return window.HUNTER_GAMES[id].visible&&entry&&(url.pathname.endsWith(`/${entry}`)||url.pathname.endsWith(`/${entry}index.html`)||url.pathname.endsWith(`/${entry.slice(0,-1)}`));
   })||'tri';
 };
 if(typeof document!=='undefined'){

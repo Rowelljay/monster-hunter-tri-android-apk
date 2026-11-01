@@ -21,7 +21,7 @@ const server = http.createServer(async (request, response) => {
     const config=readSiteConfig(await readFile(resolve(root,'site.config.js'),'utf8'));
     const gameId=Object.keys(config.games).find(id=>{
       const entry=config.games[id].entry;
-      return pathname===entry||pathname===`${entry}index.html`||(entry&&pathname===entry.slice(0,-1));
+      return config.games[id].visible&&(pathname===entry||pathname===`${entry}index.html`||(entry&&pathname===entry.slice(0,-1)));
     });
     const requested=gameId?'index.html':pathname;
     const segments = requested.split('/');

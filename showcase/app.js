@@ -27,7 +27,7 @@
     }
   });
 
-  const tabs=[...document.querySelectorAll('[data-game-link]')];
+  const tabs=[...document.querySelectorAll('[data-game-link]')].filter(tab=>window.HUNTER_GAMES[tab.dataset.gameLink]?.visible);
   const panels=[...document.querySelectorAll('[data-game-panel]')];
   const tablist=document.querySelector('.game-tabs');
   const copyButton=document.querySelector('[data-copy-game-link]');
@@ -78,6 +78,7 @@
     });
   }
   tablist.setAttribute('role','tablist');
+  document.querySelector('.game-switcher').hidden=tabs.length<2;
   selectGame(window.resolveHunterGame(location.href));
   document.documentElement.classList.add('has-game-tabs');
   window.addEventListener('popstate',()=>selectGame(window.resolveHunterGame(location.href)));

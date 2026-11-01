@@ -1,4 +1,4 @@
-import {mkdir,readFile,readdir,writeFile,copyFile} from 'node:fs/promises';
+import {mkdir,readFile,readdir,writeFile,copyFile,unlink} from 'node:fs/promises';
 import {dirname,resolve,join,relative} from 'node:path';
 import {fileURLToPath} from 'node:url';
 import {spawnSync} from 'node:child_process';
@@ -16,6 +16,11 @@ const template=await readFile(join(source,'index.html'),'utf8');
 const config=readSiteConfig(await readFile(join(source,'site.config.js'),'utf8'));
 for(const [id,game] of Object.entries(config.games)){
  const directory=join(output,game.entry);
+ if(!game.visible){
+  if(!game.entry)throw new Error('The default game must remain public.');
+  await unlink(join(directory,'index.html')).catch(error=>{if(error.code!=='ENOENT')throw error;});
+  continue;
+ }
  await mkdir(directory,{recursive:true});
  await writeFile(join(directory,'index.html'),renderPage(template,id,config,{production:true}));
 }

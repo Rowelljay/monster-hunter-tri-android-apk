@@ -2,17 +2,19 @@
 
 A compact Android and Windows download page for **MH Tri - Rowell**, with a separate experimental **MH3 - Low Spec** entry, setup instructions and contributor credits. Dark mode is the default, with an optional light theme.
 
-Game tabs also include **MH4 Ultimate · Coming soon**. The selected game has its own downloads, source links, metadata and credits. MH4U has no public APK or game-file download on this page.
+The game-tab structure is prepared for **MH4 Ultimate**, but MH4U is hidden until it is ready to show. The public page currently shows Tri only. Each enabled game has its own downloads, source links, metadata and credits.
 
 ## Game links
 
 | Link | Opens |
 | --- | --- |
 | `/` | Monster Hunter Tri (the default for existing tutorial links) |
-| `/mh4u/` | MH4 Ultimate, including without JavaScript |
-| `/?game=mh4u` | MH4 Ultimate automatically when JavaScript is available |
+| `/mh4u/` | Reserved for MH4 Ultimate; unavailable while the game is hidden |
+| `/?game=mh4u` | Opens MH4U once enabled; currently falls back to Tri |
 
-Use **Copy link** beside the tabs to share the selected game. Tabs switch immediately, update the address and support browser Back/Forward and keyboard arrow keys. Native links still open the separate game entry pages without JavaScript. Both entries are generated from one template and use the same small CSS/JS files.
+Once more than one game is visible, the tabs and **Copy link** control appear. Tabs switch immediately, update the address and support browser Back/Forward and keyboard arrow keys. Native links open each enabled game’s entry page without JavaScript. Entries are generated from one template and share the same small CSS/JS files.
+
+Game visibility is controlled by `visible` in `showcase/site.config.js`. Keep MH4U `visible:false` until it is ready. Enabling a tab does not publish an APK; installer availability must be configured separately. The build removes stale entry HTML when a game is hidden.
 
 Built with static HTML, CSS and JavaScript. No framework, database, environment variables or Docker is required.
 

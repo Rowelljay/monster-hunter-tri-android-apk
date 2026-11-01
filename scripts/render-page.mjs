@@ -12,7 +12,8 @@ export function readSiteConfig(text){
 }
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function renderPage(template,gameId,config,{production=false}={}){
-  const game=config.games[gameId];if(!game)throw new Error('Unknown game.');
+  const game=config.games[gameId];if(!game||!game.visible)throw new Error('Game is not public.');
+  const visibleGames=Object.entries(config.games).filter(([,entry])=>entry.visible);
   const title=`${game.title} · Downloads${production?'':' · Preview'}`;
   let html=template.replace('data-game="tri"',`data-game="${gameId}"`)
     .replace(/<title>[^<]*<\/title>/,`<title>${escape(title)}</title>`)
@@ -27,6 +28,13 @@ export function renderPage(template,gameId,config,{production=false}={}){
     return tag.replace(/ href="[^"]*"/,` href="${prefix}${selected.entry||'./'}"`)
       .replace(/ aria-current="[^"]*"/,'').replace(/>$/,`${id===gameId?' aria-current="page"':''}>`);
   });
+  for(const [id,entry] of Object.entries(config.games)){
+    if(entry.visible)continue;
+    html=html.replace(new RegExp(`<!-- game:${id}:start -->[\\s\\S]*?<!-- game:${id}:end -->`,'g'),'')
+      .replace(new RegExp(`<a\\b[^>]*data-game-link="${id}"[^>]*>[\\s\\S]*?<\\/a>`,'g'),'')
+      .replace(new RegExp(`<span data-hero-game="${id}">[^<]*<\\/span>`,'g'),'');
+  }
+  if(visibleGames.length<2)html=html.replace('class="game-switcher"','class="game-switcher" hidden');
   if(production)html=html.replace(/\s*<meta name="robots" content="noindex, nofollow">/,'').replace(/\s*<p class="preview-note">[\s\S]*?<\/p>/,'');
   const lowSpec=config.downloads.lowSpec;
   if(lowSpec!==null){

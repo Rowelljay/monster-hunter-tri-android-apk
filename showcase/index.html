@@ -5,7 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <meta name="theme-color" content="#0c1722">
   <meta name="robots" content="noindex, nofollow">
-  <meta name="description" content="Monster Hunter Tri Android downloads: MH Tri - Rowell, the game-file link, and setup instructions.">
+  <meta name="description" content="Monster Hunter Tri for Android and Windows. Choose the 64-bit app or explore the experimental 32-bit Low Spec edition.">
   <title>MH Tri - Rowell · Download page showcase</title>
   <link rel="icon" href="assets/mh-tri-icon.png" type="image/png">
   <link rel="stylesheet" href="styles.css">
@@ -19,6 +19,7 @@
     <symbol id="external" viewBox="0 0 24 24"><path d="M14 4h6v6m0-6L10 14M10 4H4v16h16v-6"/></symbol>
     <symbol id="file" viewBox="0 0 24 24"><path d="M14 3H5v18h14V8l-5-5Zm0 0v6h5M8 13h8m-8 4h5"/></symbol>
     <symbol id="phone" viewBox="0 0 24 24"><rect x="6" y="2" width="12" height="20" rx="3"/><path d="M10 18h4"/></symbol>
+    <symbol id="monitor" viewBox="0 0 24 24"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8m-4-4v4"/></symbol>
     <symbol id="play" viewBox="0 0 24 24"><path d="m8 5 11 7-11 7V5Z"/></symbol>
     <symbol id="code" viewBox="0 0 24 24"><path d="m8 7-5 5 5 5m8-10 5 5-5 5m-3-14-2 18"/></symbol>
     <symbol id="heart" viewBox="0 0 24 24"><path d="M12 21S3 15 3 8a5 5 0 0 1 9-3 5 5 0 0 1 9 3c0 7-9 13-9 13Z"/></symbol>
@@ -36,20 +37,40 @@
       <header class="hero">
         <img class="game-icon" src="assets/mh-tri-icon.png" alt="Monster Hunter Tri" width="80" height="80">
         <div class="hero-copy">
-          <p class="eyebrow">ANDROID DOWNLOADS</p>
+          <p class="eyebrow">ANDROID &amp; WINDOWS DOWNLOADS</p>
           <h1>Monster Hunter Tri</h1>
-          <p class="hero-description">Android APK, game file and setup guide.</p>
+          <p class="hero-description">Choose your app. Follow the setup guide.</p>
         </div>
       </header>
 
       <section class="downloads" aria-label="Monster Hunter Tri downloads">
+        <div class="section-heading"><span class="step-number">1</span><h2>Choose your app</h2></div>
+        <div class="app-options">
         <article class="download-card app-card" aria-labelledby="app-title">
-          <div class="card-heading"><span class="step-label"><span class="step-number">1</span> GET THE APP</span><span class="release-label">1.4-rowell.13 <span>· Preview</span></span></div>
-          <div class="card-title"><span class="type-icon"><svg><use href="#phone"/></svg></span><div><h2 id="app-title">MH Tri - Rowell</h2><p>Android app · Rowell build</p></div></div>
+          <div class="card-heading"><span class="step-label">ANDROID · 64-BIT</span><span class="release-label">Preview</span></div>
+          <div class="card-title"><span class="type-icon"><svg><use href="#phone"/></svg></span><div><h2 id="app-title">MH Tri - Rowell</h2><p>The standard Android build</p></div></div>
           <ul class="features" aria-label="App features"><li>English settings</li><li>Touch &amp; combo controls</li><li>Solo speed up to 1.5×</li></ul>
-          <a class="button primary-button" data-link="apk" href="https://github.com/Dling11/monster_hunter_tri_emulator/releases/download/rowell-1.4.13/MH3_Rowell_Dev-arm64.apk"><svg><use href="#download"/></svg><span>Download Android APK</span><span class="button-format">APK</span></a>
-          <div class="download-meta"><span>Android 10+ · ARM64</span><span>GitHub · 20.7 MB</span></div>
+          <a class="button primary-button" data-link="apk" href="https://github.com/Dling11/monster_hunter_tri_emulator/releases/download/rowell-1.4.13/MH3_Rowell_Dev-arm64.apk"><svg><use href="#download"/></svg><span>Download 64-bit APK</span></a>
+          <div class="download-meta"><span>Android 10+ · ARM64</span><span>1.4-rowell.13</span></div>
         </article>
+
+        <article class="download-card low-spec-card" aria-labelledby="low-spec-title">
+          <div class="card-heading"><span class="step-label">ANDROID · 32-BIT</span><span class="release-label">Experimental</span></div>
+          <div class="card-title"><span class="type-icon"><svg><use href="#phone"/></svg></span><div><h2 id="low-spec-title">MH3 - Low Spec</h2><p>A separate app for ARM 32-bit devices</p></div></div>
+          <ul class="features" aria-label="Low Spec features"><li>30 FPS default</li><li>Lower resolution</li><li>Separate app &amp; saves</li></ul>
+          <a class="button secondary-button unavailable" data-link="lowSpec" role="link" aria-disabled="true" tabindex="-1"><svg><use href="#download"/></svg><span data-low-spec-label>Temporarily unavailable</span></a>
+          <div class="download-meta"><span>Android 10+ · ARMv7</span><span>0.1-low-spec.2</span></div>
+          <p class="compatibility-note">Requires OpenGL ES 3.0 and 32-bit app support. Physical-phone performance is still being tested.</p>
+        </article>
+
+        <article class="download-card" aria-labelledby="windows-title">
+          <div class="card-heading"><span class="step-label">WINDOWS · 64-BIT</span><span class="release-label">Preview</span></div>
+          <div class="card-title"><span class="type-icon"><svg><use href="#monitor"/></svg></span><div><h2 id="windows-title">MH Tri - Rowell</h2><p>Portable app for your PC</p></div></div>
+          <ul class="features" aria-label="Windows features"><li>Keyboard controls</li><li>Editable key bindings</li><li>Portable ZIP</li></ul>
+          <a class="button primary-button" data-link="windows" href="https://github.com/Dling11/monster_hunter_tri_emulator/releases/download/rowell-1.4.13/MH3-Rowell-Windows-x64.zip"><svg><use href="#download"/></svg><span>Download Windows ZIP</span></a>
+          <div class="download-meta"><span>Windows 10/11 · x64</span><span>1.4-rowell.13</span></div>
+        </article>
+        </div>
 
         <article class="download-card game-card" aria-labelledby="game-title">
           <div class="card-heading"><span class="step-label"><span class="step-number">2</span> GET THE GAME FILE</span><span class="host-label">Romsfun <svg><use href="#external"/></svg></span></div>
@@ -62,8 +83,8 @@
 
       <details class="setup-guide" id="setup-guide">
         <summary><span><svg><use href="#play"/></svg><span>First time? Here’s the setup.</span></span><svg class="expand-icon"><use href="#chevron"/></svg></summary>
-        <ol><li><strong>Install the APK.</strong><span>Tap the downloaded APK. Follow Android’s installation prompt and approve installation from your browser or file manager if asked.</span></li><li><strong>Choose your game file.</strong><span>Open MH Tri - Rowell and select your European/PAL RVZ or ISO. Extract ZIP/RAR archives first.</span></li><li><strong>Let the first import finish.</strong><span>Keep enough storage for the game and extracted data. After setup, adjust your touch controls and start playing.</span></li></ol>
-        <p class="requirements">Requires OpenGL ES 3.0. Solo speed is experimental; online play stays at normal speed. Performance varies by device.</p>
+        <ol><li><strong>Install or extract your app.</strong><span>Android: choose the APK matching your device’s supported architecture, then follow the installation prompt. Windows: extract the ZIP into its own folder and open the app.</span></li><li><strong>Choose your game file.</strong><span>Select your European/PAL RVZ or ISO. Extract ZIP/RAR archives first.</span></li><li><strong>Let the first import finish.</strong><span>Keep enough storage for the game and extracted data. Low Spec uses its own MH3_Low_Spec folder; existing saves stay with the original app. Use save export/import to transfer progress.</span></li></ol>
+        <p class="requirements">Android requires OpenGL ES 3.0. A 64-bit phone can run Low Spec only if its Android system supports 32-bit apps. Low Spec is experimental and does not guarantee compatibility or higher FPS. Standard-build solo speed is experimental; online play stays at normal speed.</p>
       </details>
 
       <a class="source-link" data-link="source" href="https://github.com/Dling11/monster_hunter_tri_emulator" target="_blank" rel="noopener noreferrer"><span><svg><use href="#code"/></svg><span>Source code &amp; updates</span></span><svg><use href="#external"/></svg></a>

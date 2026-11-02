@@ -41,9 +41,9 @@ Run `npm run build` to check the production build locally. It creates `dist/` an
 
 ## Download links and credits
 
-Downloads are available again for the tutorial. The APK button uses the matching `rowell-1.4.13` release in the [app repository](https://github.com/Dling11/monster_hunter_tri_emulator). The separate game-file button opens [Romsfun](https://romsfun.com/download/monster-hunter-3-tri-id1-13483/2), replacing the previous MediaFire destination.
+Downloads are available again for the tutorial. The APK button uses the matching `rowell-1.4.13-netfix1` Android hotfix in the [app repository](https://github.com/Dling11/monster_hunter_tri_emulator). It moves network-interface checks off the game thread to address recurring online freezes. The separate game-file button opens [Romsfun](https://romsfun.com/download/monster-hunter-3-tri-id1-13483/2), replacing the previous MediaFire destination.
 
-Public targets are in `showcase/site.config.js` with HTML fallbacks in `showcase/index.html`. Standard Android ARM64 and Windows x64 remain on `rowell-1.4.13`. Low Spec is an experimental Android ARMv7 app with separate storage. It requires Android 10+, OpenGL ES 3.0 and 32-bit app support; performance on physical phones is not yet verified.
+Public targets are in `showcase/site.config.js` with HTML fallbacks in `showcase/index.html`. Standard Android ARM64 uses `rowell-1.4.13-netfix1`; Windows x64 stays on `rowell-1.4.13`. Save inside Tri and install the APK over your existing app to retain progress and controls. Low Spec is an experimental Android ARMv7 app with separate storage. It requires Android 10+, OpenGL ES 3.0 and 32-bit app support; performance on physical phones is not yet verified.
 
 The Low Spec button stays unavailable while `lowSpec` is `null`. After its matching public source and APK are published and its separate Rowell-Mode release pointer is approved, set it to `https://rowell-mode-app.vercel.app/download/mh-tri-low-spec/android`. The build creates the same link for visitors without JavaScript. Never use this entry to replace the standard APK.
 

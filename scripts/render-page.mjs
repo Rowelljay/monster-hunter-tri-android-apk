@@ -53,7 +53,7 @@ export function renderPage(template,gameId,config,{production=false}={}){
   const lowSpec=config.downloads.lowSpec;
   if(lowSpec!==null){
     if(lowSpec!=='https://rowell-mode-app.vercel.app/download/mh-tri-low-spec/android')throw new Error('Low Spec must use its approved download gateway.');
-    html=html.replace('class="button secondary-button unavailable" data-link="lowSpec" role="link" aria-disabled="true" tabindex="-1"',`class="button secondary-button" data-link="lowSpec" href="${lowSpec}"`).replace('data-low-spec-label>Temporarily unavailable','data-low-spec-label>Download 32-bit APK');
+    html=html.replace('class="button primary-button unavailable" data-link="lowSpec" role="link" aria-disabled="true" tabindex="-1"',`class="button primary-button" data-link="lowSpec" href="${lowSpec}"`).replace('data-low-spec-label>Temporarily unavailable','data-low-spec-label>Download 32-bit APK');
   }
   return html;
 }

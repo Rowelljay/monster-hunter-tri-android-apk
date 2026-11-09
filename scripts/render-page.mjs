@@ -10,6 +10,18 @@ export function readSiteConfig(text){
   }
   return {games,downloads:context.window.TRI_DOWNLOADS};
 }
+export function renderSiteConfig(text,{previewGame,publicOnly=false}={}){
+  const config=readSiteConfig(text);
+  let games={...config.games};
+  if(previewGame){
+    if(!Object.hasOwn(games,previewGame))throw new Error('Unknown preview game.');
+    games[previewGame]={...games[previewGame],visible:true};
+  }
+  if(publicOnly)games=Object.fromEntries(Object.entries(games).filter(([,game])=>game.visible));
+  const tail=text.indexOf('window.resolveHunterGame=');
+  if(tail<0)throw new Error('Missing game resolver.');
+  return `window.TRI_DOWNLOADS=Object.freeze(${JSON.stringify(config.downloads)});\nwindow.HUNTER_GAMES=Object.freeze(${JSON.stringify(games)});\n${text.slice(tail)}`;
+}
 const escape=value=>String(value).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#39;'}[c]));
 export function renderPage(template,gameId,config,{production=false}={}){
   const game=config.games[gameId];if(!game||!game.visible)throw new Error('Game is not public.');
@@ -20,6 +32,7 @@ export function renderPage(template,gameId,config,{production=false}={}){
     .replace(/(<meta name="description" content=")[^"]*(">)/,`$1${escape(game.description)}$2`)
     .replace(/(<meta property="og:title" content=")[^"]*(">)/,`$1${escape(`${game.title} · Downloads`)}$2`)
     .replace(/(<meta property="og:description" content=")[^"]*(">)/,`$1${escape(game.description)}$2`)
+    .replace(/<link rel="icon"[^>]*>/,`<link rel="icon" href="${escape(game.icon)}" type="${game.icon.endsWith('.jpg')?'image/jpeg':'image/png'}">`)
     .replace(/(<link rel="canonical" href=")[^"]*(">)/,`$1https://monster-hunter-tri-android-apk.vercel.app/${game.entry}$2`);
   const prefix=game.entry?'../':'';
   html=html.replace(/\b(href|src)="((?:assets\/[^"<>]+)|styles\.css|site\.config\.js|app\.js)"/g,`$1="${prefix}$2"`);
@@ -32,6 +45,7 @@ export function renderPage(template,gameId,config,{production=false}={}){
     if(entry.visible)continue;
     html=html.replace(new RegExp(`<!-- game:${id}:start -->[\\s\\S]*?<!-- game:${id}:end -->`,'g'),'')
       .replace(new RegExp(`<a\\b[^>]*data-game-link="${id}"[^>]*>[\\s\\S]*?<\\/a>`,'g'),'')
+      .replace(new RegExp(`<img\\b[^>]*data-hero-game="${id}"[^>]*>`,'g'),'')
       .replace(new RegExp(`<span data-hero-game="${id}">[^<]*<\\/span>`,'g'),'');
   }
   if(visibleGames.length<2)html=html.replace('class="game-switcher"','class="game-switcher" hidden');

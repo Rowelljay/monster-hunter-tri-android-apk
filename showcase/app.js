@@ -33,6 +33,10 @@
   const copyButton=document.querySelector('[data-copy-game-link]');
   const copyStatus=document.getElementById('copy-status');
   const root=window.HUNTER_SITE_ROOT;
+  for(const image of document.querySelectorAll('img[data-hero-game]')){
+    const game=window.HUNTER_GAMES[image.dataset.heroGame];
+    if(game?.icon)image.src=new URL(game.icon,root).href;
+  }
   let selectedGame;
   let copyTimer;
   const addressFor=id=>new URL(window.HUNTER_GAMES[id].entry,root);
@@ -45,6 +49,7 @@
     document.querySelector('meta[property="og:title"]').content=`${game.title} · Downloads`;
     document.querySelector('meta[property="og:description"]').content=game.description;
     document.querySelector('link[rel="canonical"]').href=`https://monster-hunter-tri-android-apk.vercel.app/${game.entry}`;
+    const icon=document.querySelector('link[rel="icon"]');icon.href=new URL(game.icon,root).href;icon.type=game.icon.endsWith('.jpg')?'image/jpeg':'image/png';
     for(const tab of tabs){
       const active=tab.dataset.gameLink===id;
       tab.setAttribute('role','tab');tab.setAttribute('aria-controls',`game-${tab.dataset.gameLink}`);

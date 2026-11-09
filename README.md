@@ -1,20 +1,20 @@
 # monster-hunter-tri-android-apk
 
-A compact Android and Windows download page for **MH Tri - Rowell**, with a separate experimental **MH3 - Low Spec** entry, setup instructions and contributor credits. Dark mode is the default, with an optional light theme.
+A compact download and setup guide for **Monster Hunter Tri** and **Monster Hunter 4 Ultimate**. Tri includes Android/Windows options and a separate experimental **MH3 - Low Spec** entry, which remains unavailable. MH4U links to the original developer's native Android APK and the owner-selected third-party game archive. Dark mode is the default, with an optional light theme.
 
-The game-tab structure is prepared for **MH4 Ultimate**, but MH4U is hidden until it is ready to show. The public page currently shows Tri only. Each enabled game has its own downloads, source links, metadata and credits.
+Each game has its own shareable page, downloads, setup instructions, source links, metadata and credits. **MH4U remains hidden in production while the owner reviews the local preview.** Its draft entry presents khorne-hub's original native app, separately from the older Azahar-based custom app in Dling11/MH4-ULTIMATE.
 
 ## Game links
 
 | Link | Opens |
 | --- | --- |
 | `/` | Monster Hunter Tri (the default for existing tutorial links) |
-| `/mh4u/` | Reserved for MH4 Ultimate; unavailable while the game is hidden |
-| `/?game=mh4u` | Opens MH4U once enabled; currently falls back to Tri |
+| `/mh4u/` | Prepared MH4U page; available in the explicit local preview, absent from production while hidden |
+| `/?game=mh4u` | Selects MH4U in that preview; production falls back to Tri while hidden |
 
 Once more than one game is visible, the tabs and **Copy link** control appear. Tabs switch immediately, update the address and support browser Back/Forward and keyboard arrow keys. Native links open each enabled game’s entry page without JavaScript. Entries are generated from one template and share the same small CSS/JS files.
 
-Game visibility is controlled by `visible` in `showcase/site.config.js`. Keep MH4U `visible:false` until it is ready. Enabling a tab does not publish an APK; installer availability must be configured separately. The build removes stale entry HTML when a game is hidden.
+Game visibility is controlled by `visible` in `showcase/site.config.js`; Tri is enabled and MH4U is currently `visible:false`. The production build removes hidden-game pages, navigation, content and installer/archive URLs from the served JavaScript config. Source files in this public GitHub repository still contain the draft URLs; hiding the deployed page is not source-code secrecy. Installer availability is configured separately.
 
 Built with static HTML, CSS and JavaScript. No framework, database, environment variables or Docker is required.
 
@@ -23,6 +23,8 @@ Built with static HTML, CSS and JavaScript. No framework, database, environment 
 With Node.js 20 or newer, run `npm run showcase` and open the printed address. You can also open `showcase/index.html` directly or use `OPEN-SHOWCASE.cmd` on Windows.
 
 Use the preview server to test `/mh4u/`, refreshes and copied links. Opening the HTML directly is only a basic local view.
+
+For the owner review, run `npm run preview:mh4u` and open `http://127.0.0.1:4198/mh4u/`. This explicitly enables MH4U only on the loopback preview server without changing the production visibility flag. Do not combine this with `--production`.
 
 ## Deploy to Vercel
 
@@ -48,5 +50,20 @@ Public targets are in `showcase/site.config.js` with HTML fallbacks in `showcase
 The Low Spec button stays unavailable while `lowSpec` is `null`. After its matching public source and APK are published and its separate Rowell-Mode release pointer is approved, set it to `https://rowell-mode-app.vercel.app/download/mh-tri-low-spec/android`. The build creates the same link for visitors without JavaScript. Never use this entry to replace the standard APK.
 
 The selected game URL is also saved in `config/download-links.json`; keep these values consistent when changing destinations. Game files are not included in this repository. Older app releases remain unpublished.
+
+## MH4U native Android links
+
+The prepared `/mh4u/` page uses the original **khorne-hub 0.1.8 APK** verified during setup on a POCO F5. These draft links are withheld from the deployed page/config until the owner enables MH4U:
+
+- Direct APK: https://github.com/khorne-hub/4u-native/releases/download/v0.1.8/MH4U-0.1.8.apk
+- Original source and instructions: https://github.com/khorne-hub/4u-native
+- Release notes/updates: https://github.com/khorne-hub/4u-native/releases
+- Owner-selected game archive page: https://apkvision.org/games/monster-hunter-4-ultimate-135599/download/v0.1.8-obb/
+
+The APK button downloads from GitHub in one click. The separate archive button opens APKVision; it does not select APKVision's modified installer. APKs/game files are not hosted by this static site. The APK version is deliberately pinned to the tested setup; review its external native-library ID and code-changing mods before pointing the page to a newer build. Avoid silently routing visitors to a new version with incompatible game libraries.
+
+The guide covers extracting the prepared 7Z, choosing the actual game folder rather than the storage root, the Circle Pad Pro prompt, save backups and update/import behavior. This is an experimental port: startup was verified, but full quests, sustained FPS, save/reopen and multiplayer have not been verified for this setup. Both this native port and the older Azahar app run the 3DS game; they execute its CPU code differently.
+
+Credits: Android frontend by [khorne-hub](https://github.com/khorne-hub/4u-native); recompiler/runtime from [CompaLarios18 / MH4UltimateDC](https://github.com/CompaLarios18/MH4UltimateDC), with parts derived from Azahar/Citra; single-screen mod by [jM5557](https://github.com/jM5557/mh4u-single-screen-mod). The MH4U logo is the existing CAPCOM game artwork retained from the older local app's `mh4_logo.jpg`; no app/game authorship is claimed by this guide.
 
 Page maintained by Rowell / [Nikushimi](https://www.youtube.com/@Nikushimi-19/videos). The app builds on OceanTriRecomp and its contributors; see the [full app credits](https://github.com/Dling11/monster_hunter_tri_emulator/blob/main/CREDITS.md). Monster Hunter Tri and its game artwork belong to CAPCOM. This is an unofficial fan page.

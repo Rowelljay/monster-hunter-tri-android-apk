@@ -2,5 +2,17 @@
   "game": {
     "provider": "Romsfun",
     "url": "https://romsfun.com/download/monster-hunter-3-tri-id1-13483/2"
+  },
+  "mh4u": {
+    "apk": {
+      "provider": "khorne-hub / GitHub",
+      "version": "0.1.8",
+      "url": "https://github.com/khorne-hub/4u-native/releases/download/v0.1.8/MH4U-0.1.8.apk"
+    },
+    "game": {
+      "provider": "APKVision",
+      "url": "https://apkvision.org/games/monster-hunter-4-ultimate-135599/download/v0.1.8-obb/"
+    },
+    "source": "https://github.com/khorne-hub/4u-native"
   }
 }

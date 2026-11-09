@@ -39,9 +39,9 @@
 
     <main id="main">
       <header class="hero">
-        <div class="hero-art"><img class="game-icon" data-hero-game="tri" src="assets/mh-tri-icon.png" alt="Monster Hunter Tri" width="80" height="80"><span class="game-icon mh4-mark" data-hero-game="mh4u" aria-hidden="true">IV<span>ULTIMATE</span></span></div>
+        <div class="hero-art"><img class="game-icon" data-hero-game="tri" src="assets/mh-tri-icon.png" alt="Monster Hunter Tri" width="80" height="80"><img class="game-icon mh4-logo" data-hero-game="mh4u" src="assets/mh4u-logo.jpg" alt="Monster Hunter 4 Ultimate" width="80" height="80" loading="lazy"></div>
         <div class="hero-copy">
-          <p class="eyebrow">ANDROID &amp; WINDOWS DOWNLOADS</p>
+          <p class="eyebrow"><span data-hero-game="tri">ANDROID &amp; WINDOWS DOWNLOADS</span><span data-hero-game="mh4u">ANDROID DOWNLOAD &amp; SETUP</span></p>
           <h1><span data-hero-game="tri">Monster Hunter Tri</span><span data-hero-game="mh4u">Monster Hunter 4 Ultimate</span></h1>
           <p class="hero-description">Choose your app. Follow the setup guide.</p>
         </div>
@@ -50,7 +50,7 @@
       <div class="game-switcher">
         <nav class="game-tabs" aria-label="Choose a game">
           <a id="tab-tri" data-game-link="tri" href="./" aria-current="page">MH Tri</a>
-          <a id="tab-mh4u" data-game-link="mh4u" href="./mh4u/">MH4 Ultimate<span class="tab-status">Coming soon</span></a>
+          <a id="tab-mh4u" data-game-link="mh4u" href="./mh4u/">MH4 Ultimate</a>
         </nav>
         <button class="copy-game-link" data-copy-game-link type="button" aria-label="Copy link to the selected game" title="Copy link to this game"><svg><use href="#copy"/></svg><span>Copy link</span></button>
         <span class="sr-only" id="copy-status" role="status"></span>
@@ -108,28 +108,56 @@
 
       <!-- game:mh4u:start -->
       <section class="game-panel" id="game-mh4u" data-game-panel="mh4u" aria-labelledby="tab-mh4u">
-        <article class="download-card upcoming-card" aria-labelledby="mh4u-title">
-          <div class="card-heading"><span class="step-label">ANDROID APP</span><span class="status-pill">In testing</span></div>
-          <div class="upcoming-layout">
-            <div>
-              <h2 id="mh4u-title">Monster Hunter 4 Ultimate</h2>
-              <p class="game-description">A customized Android app with landscape layouts, a touch-control editor and combo buttons.</p>
-              <ul class="features" aria-label="MH4U app features"><li>Landscape layouts</li><li>Touch editor</li><li>Combo buttons</li></ul>
-            </div>
-            <div class="upcoming-download">
-              <button class="button secondary-button unavailable" type="button" disabled><svg><use href="#download"/></svg><span>APK coming soon</span></button>
-              <p class="compatibility-note">There is no public APK yet. Downloads and setup instructions will appear here when the build is ready to share.</p>
-            </div>
-          </div>
-        </article>
-        <a class="source-link" data-link="source" href="https://github.com/Dling11/MH4-ULTIMATE" target="_blank" rel="noopener noreferrer"><span><svg><use href="#code"/></svg><span>Source code &amp; updates</span></span><svg><use href="#external"/></svg></a>
-        <p class="project-credits">Built on AzaharPlus and the MH4U community projects. <a data-link="credits" href="https://github.com/Dling11/MH4-ULTIMATE/blob/main/CREDITS.md" target="_blank" rel="noopener noreferrer">Full credits</a></p>
+        <section class="downloads" aria-label="Monster Hunter 4 Ultimate downloads">
+          <div class="section-heading"><span class="step-number">1</span><h2>Get the Android app</h2></div>
+          <article class="download-card app-card" aria-labelledby="mh4u-title">
+            <div class="card-heading"><span class="step-label">OFFICIAL DEVELOPER APK</span><span class="release-label">Experimental</span></div>
+            <div class="card-title"><span class="type-icon"><svg><use href="#phone"/></svg></span><div><h2 id="mh4u-title">MH4U · Native Android</h2><p>By khorne-hub · Community port</p></div></div>
+            <ul class="features" aria-label="MH4U app features"><li>English app menus</li><li>Swipe camera</li><li>Editable touch controls</li></ul>
+            <a class="button primary-button" data-link="apk" href="https://github.com/khorne-hub/4u-native/releases/download/v0.1.8/MH4U-0.1.8.apk"><svg><use href="#download"/></svg><span>Download official APK</span></a>
+            <div class="download-meta"><span>Android 9+ · ARM64 · Vulkan</span><span>0.1.8 · ~6 MB</span></div>
+            <p class="compatibility-note">Direct download from the developer’s GitHub. The game files are separate. This experimental port may have bugs; performance varies by device. <a data-link="updates" href="https://github.com/khorne-hub/4u-native/releases" target="_blank" rel="noopener noreferrer">Release notes &amp; updates</a></p>
+          </article>
+
+          <article class="download-card game-card" aria-labelledby="mh4u-game-title">
+            <div class="card-heading"><span class="step-label"><span class="step-number">2</span> GET THE GAME FILES</span><span class="host-label">APKVision <svg><use href="#external"/></svg></span></div>
+            <div class="card-title"><span class="type-icon"><svg><use href="#file"/></svg></span><div><h2 id="mh4u-game-title">Monster Hunter 4 Ultimate</h2><p>USA game + 1.3.0 update · Prepared 7Z archive</p></div></div>
+            <p class="game-description">Extract the archive first. Keep the game, update, matching native library and mods together in one folder.</p>
+            <a class="button secondary-button" data-link="game" href="https://apkvision.org/games/monster-hunter-4-ultimate-135599/download/v0.1.8-obb/" target="_blank" rel="noopener noreferrer"><svg><use href="#download"/></svg><span>Open game files</span><svg class="end-icon"><use href="#external"/></svg><span class="sr-only">Opens APKVision in a new tab</span></a>
+            <div class="download-meta"><span>~2.3 GB download</span><span>~4.5 GB extracted</span></div>
+            <p class="file-note">Third-party archive page supplied for this guide. Use the GitHub APK button above for the official app installer.</p>
+          </article>
+        </section>
+
+        <details class="setup-guide" id="mh4u-setup-guide">
+          <summary><span><svg><use href="#play"/></svg><span>First time? Here’s the setup.</span></span><svg class="expand-icon"><use href="#chevron"/></svg></summary>
+          <ol>
+            <li><strong>Install the official APK.</strong><span>Use the GitHub download above. This native app installs separately from the older MH4U - Rowell app.</span></li>
+            <li><strong>Extract the game archive.</strong><span>Use a 7Z-capable extractor. Put the extracted folder in normal phone storage, for example <code>MH4U_Native</code>, outside <code>Android/data</code>. Allow space for both the archive and its extracted files.</span></li>
+            <li><strong>Choose the complete game folder.</strong><span>Open MH4U → Give permission and choose folder. Allow file access, return, then enter the folder containing <code>MH4U.cci</code>, <code>MH4U_update.cia</code>, <code>libmh4u_code_native.so</code>, its <code>.id</code> and <code>mods</code>. When it says “The game is here,” tap Use this folder. Select the folder itself, not the archive or the storage root.</span></li>
+            <li><strong>Start the game.</strong><span>Wait for preparation to finish. Choose No when asked about the Nintendo 3DS Circle Pad Pro attachment; the app handles swipe-camera and controller input itself.</span></li>
+          </ol>
+          <p class="requirements">The USA game, 1.3.0 update and code library must match this native app and its code-changing mods. A newer APK may need a newly generated library. The developer’s <a href="https://github.com/khorne-hub/4u-native#setup" target="_blank" rel="noopener noreferrer">full setup guide</a> explains the required files and how to build the library.</p>
+        </details>
+
+        <details class="setup-guide mh4u-help">
+          <summary><span><svg><use href="#file"/></svg><span>Keeping your progress when updating</span></span><svg class="expand-icon"><use href="#chevron"/></svg></summary>
+          <div class="guide-copy"><p>Save inside the game first. In Gear → Menu Options → Export save, make a backup before updating. An official update with the same app identity and signing key normally keeps its data; uninstalling or clearing app data removes app-owned saves.</p><p>Progress from an older Azahar-based app needs a separate save import. Use a copy of your save through Import save; its control settings belong to the older app.</p></div>
+        </details>
+
+        <details class="setup-guide mh4u-help">
+          <summary><span><svg><use href="#code"/></svg><span>Native port, Azahar and known bugs</span></span><svg class="expand-icon"><use href="#chevron"/></svg></summary>
+          <div class="guide-copy"><p>Both run the Nintendo 3DS version of MH4U. Azahar emulates its CPU; this port recompiles the game’s CPU code for Android and uses its own runtime with Vulkan graphics. Parts of that runtime are derived from Azahar and Citra.</p><p>A native port can still have compatibility bugs. Startup was checked on a POCO F5; full quest, save/reopen and multiplayer testing remain separate checks. A sharper picture or higher FPS does not guarantee every feature works.</p></div>
+        </details>
+
+        <a class="source-link" data-link="source" href="https://github.com/khorne-hub/4u-native" target="_blank" rel="noopener noreferrer"><span><svg><use href="#code"/></svg><span>Original project &amp; source code</span></span><svg><use href="#external"/></svg></a>
+        <p class="project-credits">Android port by <a href="https://github.com/khorne-hub/4u-native" target="_blank" rel="noopener noreferrer">khorne-hub</a>. Recompiler and native runtime: <a href="https://github.com/CompaLarios18/MH4UltimateDC" target="_blank" rel="noopener noreferrer">CompaLarios18 / MH4UltimateDC</a>. Single-screen mod: <a href="https://github.com/jM5557/mh4u-single-screen-mod" target="_blank" rel="noopener noreferrer">jM5557</a>. Thank you to the developers and contributors. <a data-link="credits" href="https://github.com/khorne-hub/4u-native#credits" target="_blank" rel="noopener noreferrer">Full credits</a></p>
       </section>
       <!-- game:mh4u:end -->
 
       <footer>
         <div class="footer-links"><a data-link="youtube" href="https://www.youtube.com/@Nikushimi-19/videos" target="_blank" rel="noopener noreferrer"><svg><use href="#play"/></svg>YouTube</a><span aria-hidden="true">·</span><a data-link="support" href="https://support-page-donation.vercel.app" target="_blank" rel="noopener noreferrer"><svg><use href="#heart"/></svg>Support the channel</a></div>
-        <p>A fan project, maintained by Rowell.</p>
+        <p>A fan-made guide, maintained by Rowell.</p>
         <p class="credits">Monster Hunter and its game artwork belong to CAPCOM. This is an unofficial fan page.</p>
         <p class="preview-note">DESIGN SHOWCASE · LOCAL PREVIEW · NOT PUBLISHED</p>
       </footer>

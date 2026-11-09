@@ -17,6 +17,7 @@ window.HUNTER_GAMES=Object.freeze({
   tri:Object.freeze({
     visible:true,
     title:'Monster Hunter Tri',
+    icon:'assets/mh-tri-icon.png',
     description:'Monster Hunter Tri for Android and Windows. App downloads, experimental Low Spec information and setup instructions.',
     entry:'',
     links:window.TRI_DOWNLOADS,
@@ -24,11 +25,15 @@ window.HUNTER_GAMES=Object.freeze({
   mh4u:Object.freeze({
     visible:false,
     title:'Monster Hunter 4 Ultimate',
-    description:'Monster Hunter 4 Ultimate on Android. Explore the community app project; APK downloads and installation instructions are coming later.',
+    icon:'assets/mh4u-logo.jpg',
+    description:'Monster Hunter 4 Ultimate on Android: the official khorne-hub 0.1.8 native APK, separate game-file link, setup guide and developer credits.',
     entry:'mh4u/',
     links:Object.freeze({
-      source:'https://github.com/Dling11/MH4-ULTIMATE',
-      credits:'https://github.com/Dling11/MH4-ULTIMATE/blob/main/CREDITS.md',
+      apk:'https://github.com/khorne-hub/4u-native/releases/download/v0.1.8/MH4U-0.1.8.apk',
+      game:'https://apkvision.org/games/monster-hunter-4-ultimate-135599/download/v0.1.8-obb/',
+      source:'https://github.com/khorne-hub/4u-native',
+      credits:'https://github.com/khorne-hub/4u-native#credits',
+      updates:'https://github.com/khorne-hub/4u-native/releases',
     }),
   }),
 });

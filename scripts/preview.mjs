@@ -2,12 +2,14 @@ import http from 'node:http';
 import { readFile } from 'node:fs/promises';
 import { resolve, dirname, extname } from 'node:path';
 import { fileURLToPath } from 'node:url';
-import { readSiteConfig,renderPage } from './render-page.mjs';
+import { readSiteConfig,renderPage,renderSiteConfig } from './render-page.mjs';
 
 const production=process.argv.includes('--production');
+const previewMH4=process.argv.includes('--mh4u');
+if(production&&previewMH4)throw new Error('MH4U preview is local-source only; production visibility stays in site.config.js.');
 const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', production?'dist':'showcase');
 const host = '127.0.0.1';
-const port = Number(process.env.PORT || 4188);
+const port = Number(process.env.PORT || (previewMH4?4198:4188));
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon' };
 const allowed = new Set(['index.html', 'styles.css', 'app.js', 'site.config.js']);
 
@@ -18,7 +20,9 @@ const server = http.createServer(async (request, response) => {
       return response.end('Method not allowed.');
     }
     const pathname=decodeURIComponent(new URL(request.url, `http://${host}:${port}`).pathname).replace(/^\/+/, '');
-    const config=readSiteConfig(await readFile(resolve(root,'site.config.js'),'utf8'));
+    const storedConfig=await readFile(resolve(root,'site.config.js'),'utf8');
+    const configText=previewMH4?renderSiteConfig(storedConfig,{previewGame:'mh4u'}):storedConfig;
+    const config=readSiteConfig(configText);
     const gameId=Object.keys(config.games).find(id=>{
       const entry=config.games[id].entry;
       return config.games[id].visible&&(pathname===entry||pathname===`${entry}index.html`||(entry&&pathname===entry.slice(0,-1)));
@@ -35,7 +39,8 @@ const server = http.createServer(async (request, response) => {
       response.writeHead(404);
       return response.end('Not found.');
     }
-    const file=gameId&&!production?Buffer.from(renderPage(await readFile(target,'utf8'),gameId,config)):await readFile(target);
+    const file=requested==='site.config.js'&&!production?Buffer.from(configText)
+      :gameId&&!production?Buffer.from(renderPage(await readFile(target,'utf8'),gameId,config)):await readFile(target);
     response.writeHead(200, {
       'Content-Type': types[extname(target).toLowerCase()],
       'Content-Length': file.length,

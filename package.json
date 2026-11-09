@@ -3,6 +3,6 @@
   "private": true,
   "version": "0.0.0-showcase",
   "description": "Monster Hunter Tri Android downloads and setup guide.",
-  "scripts": { "showcase": "node scripts/preview.mjs", "build": "node scripts/build.mjs" },
+  "scripts": { "showcase": "node scripts/preview.mjs", "preview:mh4u": "node scripts/preview.mjs --mh4u", "build": "node scripts/build.mjs" },
   "engines": { "node": ">=20" }
 }

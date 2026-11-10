@@ -16,8 +16,8 @@
     "source": "https://github.com/khorne-hub/4u-native",
     "azahar": {
       "provider": "Customized AzaharPlus app",
-      "version": "1.0.16",
-      "url": "https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.16/Monster-Hunter-4-1.0.16.apk",
+      "version": "1.0.17",
+      "url": "https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.17/Monster-Hunter-4-1.0.17.apk",
       "source": "https://github.com/Dling11/MH4-ULTIMATE",
       "game": {
         "provider": "Ziperto",
@@ -27,7 +27,7 @@
         "fallback": {
           "provider": "Romsfun",
           "url": "https://romsfun.com/download/monster-hunter-4-ultimate-72059-42763/2",
-          "method": "Extract the downloaded USA ZIP or 7Z archive first, then select the decrypted .3ds, .cci or .cxi image."
+          "method": "Choose the single USA ZIP or 7Z through Add game for automatic extraction, or manually extract and choose the .3ds, .cci or .cxi image."
         }
       }
     }

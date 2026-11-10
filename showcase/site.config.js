@@ -35,7 +35,7 @@ window.HUNTER_GAMES=Object.freeze({
       credits:'https://github.com/khorne-hub/4u-native#credits',
       updates:'https://github.com/khorne-hub/4u-native/releases',
       // Pinned to the signed customized release; the Native APK stays separate.
-      azaharApk:'https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.16/Monster-Hunter-4-1.0.16.apk',
+      azaharApk:'https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.17/Monster-Hunter-4-1.0.17.apk',
       azaharSource:'https://github.com/Dling11/MH4-ULTIMATE',
       azaharGame:'https://www.ziperto.com/monster-hunter-4-ultimate-3ds-decrypted-rom/',
       azaharGameFallback:'https://romsfun.com/download/monster-hunter-4-ultimate-72059-42763/2',

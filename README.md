@@ -67,23 +67,27 @@ Direct local review links:
 Copy link preserves the selected edition. The addresses above are loopback review
 links. Public visitors use the same paths at https://monster-hunter-tri-android-apk.vercel.app/.
 
-The customized edition is **Monster Hunter 4 1.0.16**, based on
+The customized edition is **Monster Hunter 4 1.0.17**, based on
 [klark231 / MH4U-Android](https://github.com/klark231/MH4U-Android) and
 [AzaharPlus](https://github.com/klark231/AzaharPlus), with Azahar/Citra lineage.
 Its [custom source](https://github.com/Dling11/MH4-ULTIMATE) and
-[signed APK](https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.16/Monster-Hunter-4-1.0.16.apk)
+[signed APK](https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.17/Monster-Hunter-4-1.0.17.apk)
 are available separately from the native APK. Save in-game before updating, then
 install over this customized edition without uninstalling or clearing data.
 
 The customized edition shows two game-image download buttons, in this order:
 [1. Ziperto (3 parts)](https://www.ziperto.com/monster-hunter-4-ultimate-3ds-decrypted-rom/)
 and [2. Romsfun](https://romsfun.com/download/monster-hunter-4-ultimate-72059-42763/2).
-Choose one source, extract the archive and select the resulting decrypted
-`.3ds`, `.cci` or `.cxi` through Add game; a main-game `.cia` is not accepted by
-this customized launcher. For Romsfun, extract the downloaded ZIP or 7Z first.
-For Ziperto, keep all three matching parts together
-and extract part 1. These downloads have not yet been gameplay-tested in
-this app. The Native tab keeps its separate prepared game-folder instructions.
+Choose one source. In 1.0.17, Add game can extract a single ZIP / 7Z directly or
+copy a decrypted `.3ds`, `.cci` or `.cxi` image. For Romsfun, select the downloaded
+archive through Add game. For Ziperto, keep all three matching parts together
+and extract part 1 manually, then select the game image. A main-game `.cia`, RAR
+or individual split part is not accepted by the automatic importer. Your original
+download is kept; allow room for both it and the extracted image. Progress, Cancel,
+storage checks and image validation are included. The camera joystick also matches
+the walking pad's faint fill and outline. A local 4 GiB extraction matched its
+reference, but the new Android import flow and appearance still need phone testing.
+The Native tab keeps its separate prepared game-folder instructions.
 
 ## Native Android links
 

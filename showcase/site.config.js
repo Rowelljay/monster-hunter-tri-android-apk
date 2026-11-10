@@ -23,10 +23,10 @@ window.HUNTER_GAMES=Object.freeze({
     links:window.TRI_DOWNLOADS,
   }),
   mh4u:Object.freeze({
-    visible:false,
+    visible:true,
     title:'Monster Hunter 4 Ultimate',
     icon:'assets/mh4u-logo.jpg',
-    description:'Monster Hunter 4 Ultimate on Android: the official khorne-hub 0.1.8 native APK, separate game-file link, setup guide and developer credits.',
+    description:'Monster Hunter 4 Ultimate on Android. Choose the native port or the customized Azahar edition, with separate setup guides and real app screenshots.',
     entry:'mh4u/',
     links:Object.freeze({
       apk:'https://github.com/khorne-hub/4u-native/releases/download/v0.1.8/MH4U-0.1.8.apk',
@@ -34,6 +34,11 @@ window.HUNTER_GAMES=Object.freeze({
       source:'https://github.com/khorne-hub/4u-native',
       credits:'https://github.com/khorne-hub/4u-native#credits',
       updates:'https://github.com/khorne-hub/4u-native/releases',
+      // Pinned to the signed customized release; the Native APK stays separate.
+      azaharApk:'https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.16/Monster-Hunter-4-1.0.16.apk',
+      azaharSource:'https://github.com/Dling11/MH4-ULTIMATE',
+      azaharGame:'https://www.ziperto.com/monster-hunter-4-ultimate-3ds-decrypted-rom/',
+      azaharGameFallback:'https://romsfun.com/download/monster-hunter-4-ultimate-72059-42763/2',
     }),
   }),
 });

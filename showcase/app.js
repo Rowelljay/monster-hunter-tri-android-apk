@@ -17,15 +17,81 @@
     let valid=false;try{valid=typeof target==='string'&&new URL(target).protocol==='https:';}catch{}
     if(valid){
       link.href=target;
-      if(link.dataset.link==='lowSpec'){
+      if(link.dataset.link==='azaharApk'){
+        link.removeAttribute('aria-disabled');link.removeAttribute('tabindex');link.classList.remove('unavailable');
+        link.querySelector('span').textContent='Download customized APK';
+      }else if(link.dataset.link==='lowSpec'){
         link.removeAttribute('aria-disabled');link.removeAttribute('tabindex');link.classList.remove('unavailable');
         link.querySelector('[data-low-spec-label]').textContent='Download 32-bit APK';
       }
+    }else if(link.dataset.link==='azaharApk'){
+      link.removeAttribute('href');link.setAttribute('aria-disabled','true');link.setAttribute('tabindex','-1');link.classList.add('unavailable');
+      link.querySelector('span').textContent='APK not published yet';
     }else if(link.dataset.link==='lowSpec'){
       link.removeAttribute('href');link.setAttribute('aria-disabled','true');link.setAttribute('tabindex','-1');link.classList.add('unavailable');
       link.querySelector('[data-low-spec-label]').textContent='Temporarily unavailable';
     }
   });
+
+  const editionPanel=document.getElementById('game-mh4u');
+  const editionTabs=[...document.querySelectorAll('[data-edition-link]')];
+  const editionFromAddress=()=>location.hash==='#mh4u-azahar'?'azahar':'native';
+  function selectEdition(id){
+    if(!editionPanel)return;
+    editionPanel.classList.add('has-edition-tabs');
+    for(const tab of editionTabs){
+      const active=tab.dataset.editionLink===id;
+      tab.setAttribute('role','tab');tab.setAttribute('aria-controls',`mh4u-${tab.dataset.editionLink}`);
+      tab.setAttribute('aria-selected',String(active));tab.tabIndex=active?0:-1;
+      if(active)tab.setAttribute('aria-current','page');else tab.removeAttribute('aria-current');
+    }
+    for(const panel of editionPanel.querySelectorAll('.mh4u-edition')){panel.setAttribute('role','tabpanel');panel.hidden=panel.dataset.edition!==id;}
+  }
+  function navigateEdition(id){
+    if(editionFromAddress()!==id){const url=new URL(location.href);url.hash=`mh4u-${id}`;history.pushState(null,'',url);}
+    selectEdition(id);
+  }
+  for(const tab of editionTabs){
+    tab.addEventListener('click',event=>{
+      if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+      event.preventDefault();navigateEdition(tab.dataset.editionLink);
+    });
+    tab.addEventListener('keydown',event=>{
+      if(event.key===' '||event.key==='Enter'){event.preventDefault();navigateEdition(tab.dataset.editionLink);return;}
+      const index=editionTabs.indexOf(tab);
+      const next={ArrowRight:(index+1)%editionTabs.length,ArrowLeft:(index+editionTabs.length-1)%editionTabs.length,Home:0,End:editionTabs.length-1}[event.key];
+      if(next===undefined)return;
+      event.preventDefault();editionTabs[next].focus();navigateEdition(editionTabs[next].dataset.editionLink);
+    });
+  }
+  editionPanel?.querySelector('.edition-tabs').setAttribute('role','tablist');
+  selectEdition(editionFromAddress());
+  window.addEventListener('hashchange',()=>selectEdition(editionFromAddress()));
+  window.addEventListener('popstate',()=>selectEdition(editionFromAddress()));
+
+  // Resolve screenshot URLs before tab navigation changes the page address.
+  document.querySelectorAll('[data-screenshot]').forEach(link=>{
+    const url=new URL(link.getAttribute('href'),document.baseURI).href;
+    link.href=url;
+    const preview=link.querySelector('img');
+    if(preview)preview.src=url;
+  });
+  const screenshotDialog=document.getElementById('mh4u-screenshot');
+  if(screenshotDialog){
+    const image=screenshotDialog.querySelector('img');
+    image.src=new URL(image.getAttribute('src'),document.baseURI).href;
+  }
+  if(screenshotDialog&&typeof screenshotDialog.showModal==='function'){
+    document.querySelectorAll('[data-screenshot]').forEach(link=>link.addEventListener('click',event=>{
+      if(event.button!==0||event.ctrlKey||event.metaKey||event.shiftKey||event.altKey)return;
+      event.preventDefault();
+      screenshotDialog.querySelector('img').src=link.href;
+      screenshotDialog.querySelector('img').alt=link.querySelector('img').alt;
+      screenshotDialog.querySelector('#screenshot-caption').textContent=link.dataset.caption;
+      screenshotDialog.showModal();
+    }));
+    screenshotDialog.querySelector('[data-close-screenshot]').addEventListener('click',()=>screenshotDialog.close());
+  }
 
   const tabs=[...document.querySelectorAll('[data-game-link]')].filter(tab=>window.HUNTER_GAMES[tab.dataset.gameLink]?.visible);
   const panels=[...document.querySelectorAll('[data-game-panel]')];
@@ -43,6 +109,7 @@
   function selectGame(id){
     selectedGame=id;
     const game=window.HUNTER_GAMES[id];
+    selectEdition(editionFromAddress());
     document.documentElement.dataset.game=id;
     document.title=`${game.title} · Downloads`;
     document.querySelector('meta[name="description"]').content=game.description;
@@ -90,7 +157,9 @@
   copyButton.addEventListener('click',async()=>{
     copyButton.disabled=true;
     try{
-      await navigator.clipboard.writeText(addressFor(selectedGame).href);
+      const address=addressFor(selectedGame);
+      if(selectedGame==='mh4u'&&editionFromAddress()==='azahar')address.hash='mh4u-azahar';
+      await navigator.clipboard.writeText(address.href);
       copyButton.querySelector('span').textContent='Link copied';copyButton.setAttribute('aria-label',`Link copied for ${window.HUNTER_GAMES[selectedGame].title}`);copyStatus.textContent=`${window.HUNTER_GAMES[selectedGame].title} link copied.`;
     }catch{copyStatus.textContent='Copy the address from your browser to share this game.';}
     finally{copyButton.disabled=false;copyTimer=setTimeout(()=>{copyButton.querySelector('span').textContent='Copy link';copyButton.setAttribute('aria-label','Copy link to the selected game');},2200);}

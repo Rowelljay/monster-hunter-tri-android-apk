@@ -1,20 +1,21 @@
 # monster-hunter-tri-android-apk
 
-A compact download and setup guide for **Monster Hunter Tri** and **Monster Hunter 4 Ultimate**. Tri includes Android/Windows options and a separate experimental **MH3 - Low Spec** entry, which remains unavailable. MH4U links to the original developer's native Android APK and the owner-selected third-party game archive. Dark mode is the default, with an optional light theme.
+A compact download and setup guide for **Monster Hunter Tri** and **Monster Hunter 4 Ultimate**. Tri includes Android/Windows options and a separate experimental **MH3 - Low Spec** entry. MH4U offers the original developer's native Android APK and a separate customized Azahar edition, each with its own game-file links and setup guide. Dark mode is the default, with an optional light theme.
 
-Each game has its own shareable page, downloads, setup instructions, source links, metadata and credits. **MH4U remains hidden in production while the owner reviews the local preview.** Its draft entry presents khorne-hub's original native app, separately from the older Azahar-based custom app in Dling11/MH4-ULTIMATE.
+Each game has its own shareable page, downloads, setup instructions, source links, metadata and credits. The MH4U page presents khorne-hub's original native app separately from the customized Azahar-based app in Dling11/MH4-ULTIMATE.
 
 ## Game links
 
 | Link | Opens |
 | --- | --- |
 | `/` | Monster Hunter Tri (the default for existing tutorial links) |
-| `/mh4u/` | Prepared MH4U page; available in the explicit local preview, absent from production while hidden |
-| `/?game=mh4u` | Selects MH4U in that preview; production falls back to Tri while hidden |
+| `/mh4u/` | MH4U page with Native port selected |
+| `/mh4u/#mh4u-azahar` | MH4U page with Customized Azahar selected |
+| `/?game=mh4u` | Selects MH4U from a query link |
 
 Once more than one game is visible, the tabs and **Copy link** control appear. Tabs switch immediately, update the address and support browser Back/Forward and keyboard arrow keys. Native links open each enabled game’s entry page without JavaScript. Entries are generated from one template and share the same small CSS/JS files.
 
-Game visibility is controlled by `visible` in `showcase/site.config.js`; Tri is enabled and MH4U is currently `visible:false`. The production build removes hidden-game pages, navigation, content and installer/archive URLs from the served JavaScript config. Source files in this public GitHub repository still contain the draft URLs; hiding the deployed page is not source-code secrecy. Installer availability is configured separately.
+Game visibility is controlled by `visible` in `showcase/site.config.js`; Tri and MH4U are enabled. Setting an entry to `false` removes its production page, navigation, content and installer/archive URLs from the served JavaScript config. Source files in this public GitHub repository retain their configured URLs; hiding the deployed page is not source-code secrecy. Installer availability is configured separately.
 
 Built with static HTML, CSS and JavaScript. No framework, database, environment variables or Docker is required.
 
@@ -51,9 +52,42 @@ The Low Spec button uses its independently approved [32-bit download](https://ro
 
 The selected game URL is also saved in `config/download-links.json`; keep these values consistent when changing destinations. Game files are not included in this repository. Older app releases remain unpublished.
 
-## MH4U native Android links
+## MH4U app choices
 
-The prepared `/mh4u/` page uses the original **khorne-hub 0.1.8 APK** verified during setup on a POCO F5. These draft links are withheld from the deployed page/config until the owner enables MH4U:
+The MH4U page has a second row of tabs: **Native port** and **Customized Azahar**.
+Only the selected app's screenshot, download and instructions are shown. Each
+screenshot is a compact preview that opens at a larger size; no image viewer or
+framework dependency is added. Both tabs also work without JavaScript.
+
+Direct local review links:
+
+- Native: http://127.0.0.1:4198/mh4u/#mh4u-native
+- Customized Azahar: http://127.0.0.1:4198/mh4u/#mh4u-azahar
+
+Copy link preserves the selected edition. The addresses above are loopback review
+links. Public visitors use the same paths at https://monster-hunter-tri-android-apk.vercel.app/.
+
+The customized edition is **Monster Hunter 4 1.0.16**, based on
+[klark231 / MH4U-Android](https://github.com/klark231/MH4U-Android) and
+[AzaharPlus](https://github.com/klark231/AzaharPlus), with Azahar/Citra lineage.
+Its [custom source](https://github.com/Dling11/MH4-ULTIMATE) and
+[signed APK](https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.16/Monster-Hunter-4-1.0.16.apk)
+are available separately from the native APK. Save in-game before updating, then
+install over this customized edition without uninstalling or clearing data.
+
+The customized edition shows two game-image download buttons, in this order:
+[1. Ziperto (3 parts)](https://www.ziperto.com/monster-hunter-4-ultimate-3ds-decrypted-rom/)
+and [2. Romsfun](https://romsfun.com/download/monster-hunter-4-ultimate-72059-42763/2).
+Choose one source, extract the archive and select the resulting decrypted
+`.3ds`, `.cci` or `.cxi` through Add game; a main-game `.cia` is not accepted by
+this customized launcher. For Romsfun, extract the downloaded ZIP or 7Z first.
+For Ziperto, keep all three matching parts together
+and extract part 1. These downloads have not yet been gameplay-tested in
+this app. The Native tab keeps its separate prepared game-folder instructions.
+
+## Native Android links
+
+The `/mh4u/` page uses the original **khorne-hub 0.1.8 APK** verified during setup on a POCO F5:
 
 - Direct APK: https://github.com/khorne-hub/4u-native/releases/download/v0.1.8/MH4U-0.1.8.apk
 - Original source and instructions: https://github.com/khorne-hub/4u-native

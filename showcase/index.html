@@ -115,6 +115,16 @@
 
       <!-- game:mh4u:start -->
       <section class="game-panel" id="game-mh4u" data-game-panel="mh4u" aria-labelledby="tab-mh4u">
+        <div class="edition-picker">
+          <p id="edition-label">Choose your MH4U app</p>
+          <nav class="edition-tabs" aria-labelledby="edition-label">
+            <a id="edition-tab-native" data-edition-link="native" href="#mh4u-native" aria-current="page">Native port</a>
+            <a id="edition-tab-azahar" data-edition-link="azahar" href="#mh4u-azahar">Customized Azahar</a>
+          </nav>
+          <p class="edition-hint">Two separate apps. Choose one to see its download and setup.</p>
+        </div>
+        <section class="mh4u-edition" id="mh4u-native" data-edition="native" aria-labelledby="edition-tab-native">
+        <a class="app-preview" data-screenshot data-caption="Native port · touch controls at the first-start setup screen" href="assets/mh4u-native-screen.webp" target="_blank" rel="noopener noreferrer"><img src="assets/mh4u-native-screen.webp" alt="Native port with gold touch controls and the Circle Pad Pro setup prompt" width="1200" height="540" loading="lazy"><span><strong>Native port</strong><span>First-start setup screen</span><span class="preview-action">Enlarge screenshot <svg><use href="#external"/></svg></span></span></a>
         <section class="downloads" aria-label="Monster Hunter 4 Ultimate downloads">
           <div class="section-heading"><span class="step-number">1</span><h2>Get the Android app</h2></div>
           <article class="download-card app-card" aria-labelledby="mh4u-title">
@@ -137,9 +147,9 @@
         </section>
 
         <details class="setup-guide" id="mh4u-setup-guide">
-          <summary><span><svg><use href="#play"/></svg><span>First time? Here’s the setup.</span></span><svg class="expand-icon"><use href="#chevron"/></svg></summary>
+          <summary><span><svg><use href="#play"/></svg><span>Set up the native port</span></span><svg class="expand-icon"><use href="#chevron"/></svg></summary>
           <ol>
-            <li><strong>Install the official APK.</strong><span>Use the GitHub download above. This native app installs separately from the older MH4U - Rowell app.</span></li>
+            <li><strong>Install the official APK.</strong><span>Use the GitHub download above. This native app installs separately from the customized Azahar edition.</span></li>
             <li><strong>Extract the game archive.</strong><span>Use a 7Z-capable extractor. Put the extracted folder in normal phone storage, for example <code>MH4U_Native</code>, outside <code>Android/data</code>. Allow space for both the archive and its extracted files.</span></li>
             <li><strong>Choose the complete game folder.</strong><span>Open MH4U → Give permission and choose folder. Allow file access, return, then enter the folder containing <code>MH4U.cci</code>, <code>MH4U_update.cia</code>, <code>libmh4u_code_native.so</code>, its <code>.id</code> and <code>mods</code>. When it says “The game is here,” tap Use this folder. Select the folder itself, not the archive or the storage root.</span></li>
             <li><strong>Start the game.</strong><span>Wait for preparation to finish. Choose No when asked about the Nintendo 3DS Circle Pad Pro attachment; the app handles swipe-camera and controller input itself.</span></li>
@@ -159,6 +169,57 @@
 
         <a class="source-link" data-link="source" href="https://github.com/khorne-hub/4u-native" target="_blank" rel="noopener noreferrer"><span><svg><use href="#code"/></svg><span>Original project &amp; source code</span></span><svg><use href="#external"/></svg></a>
         <p class="project-credits">Android port by <a href="https://github.com/khorne-hub/4u-native" target="_blank" rel="noopener noreferrer">khorne-hub</a>. Recompiler and native runtime: <a href="https://github.com/CompaLarios18/MH4UltimateDC" target="_blank" rel="noopener noreferrer">CompaLarios18 / MH4UltimateDC</a>. Single-screen mod: <a href="https://github.com/jM5557/mh4u-single-screen-mod" target="_blank" rel="noopener noreferrer">jM5557</a>. Thank you to the developers and contributors. <a data-link="credits" href="https://github.com/khorne-hub/4u-native#credits" target="_blank" rel="noopener noreferrer">Full credits</a></p>
+        </section>
+
+        <section class="mh4u-edition" id="mh4u-azahar" data-edition="azahar" aria-labelledby="edition-tab-azahar">
+          <a class="app-preview" data-screenshot data-caption="Customized Azahar 1.0.8 · character selection with editable touch controls" href="assets/mh4u-azahar-screen.webp" target="_blank" rel="noopener noreferrer"><img src="assets/mh4u-azahar-screen.webp" alt="Customized Azahar app with thin teal touch controls and a small second screen" width="1200" height="540" loading="lazy"><span><strong>Customized Azahar</strong><span>Character selection · 1.0.8</span><span class="preview-action">Enlarge screenshot <svg><use href="#external"/></svg></span></span></a>
+          <section class="downloads" aria-label="Customized Azahar app">
+            <div class="section-heading"><span class="step-number">1</span><h2>Get the Android app</h2></div>
+            <article class="download-card app-card" aria-labelledby="mh4u-azahar-title">
+              <div class="card-heading"><span class="step-label">CUSTOMIZED EMULATOR</span><span class="release-label">Separate app</span></div>
+              <div class="card-title"><span class="type-icon"><svg><use href="#phone"/></svg></span><div><h2 id="mh4u-azahar-title">MH4U · Customized Azahar</h2><p>AzaharPlus-based · Custom interface by Rowell</p></div></div>
+              <ul class="features" aria-label="Customized app features"><li>Editable controls &amp; combos</li><li>Screen layouts</li><li>Save export &amp; import</li></ul>
+              <a class="button primary-button" data-link="azaharApk" href="https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.16/Monster-Hunter-4-1.0.16.apk" target="_blank" rel="noopener noreferrer"><svg><use href="#download"/></svg><span>Download customized APK</span></a>
+              <div class="download-meta"><span>Android 10+ · ARM64 · Vulkan</span><span>1.0.16 · ~16 MB</span></div>
+              <p class="compatibility-note">The app is named “Monster Hunter 4” on your phone. It uses AzaharPlus and installs separately from the native port. To update this edition, save in-game and install over your existing customized app.</p>
+            </article>
+            <article class="download-card game-card" aria-labelledby="mh4u-azahar-game-title">
+              <div class="card-heading"><span class="step-label"><span class="step-number">2</span> GET THE GAME IMAGE</span><span class="host-label">2 download options</span></div>
+              <div class="card-title"><span class="type-icon"><svg><use href="#file"/></svg></span><div><h2 id="mh4u-azahar-game-title">Monster Hunter 4 Ultimate</h2><p>USA game image · Extract the archive first</p></div></div>
+              <p class="game-description">Choose one source below. Extract the USA archive, then select the decrypted game image in Add game. You only need one download option.</p>
+              <div class="downloads" aria-label="Game file download options">
+                <a class="button secondary-button" data-link="azaharGame" href="https://www.ziperto.com/monster-hunter-4-ultimate-3ds-decrypted-rom/" target="_blank" rel="noopener noreferrer"><svg><use href="#download"/></svg><span>1. Ziperto (3 parts)</span><svg class="end-icon"><use href="#external"/></svg><span class="sr-only">Opens Ziperto in a new tab</span></a>
+                <a class="button secondary-button" data-link="azaharGameFallback" href="https://romsfun.com/download/monster-hunter-4-ultimate-72059-42763/2" target="_blank" rel="noopener noreferrer"><svg><use href="#download"/></svg><span>2. Romsfun</span><svg class="end-icon"><use href="#external"/></svg><span class="sr-only">Opens Romsfun in a new tab</span></a>
+              </div>
+              <p class="file-note"><strong>Romsfun:</strong> Extract the downloaded ZIP or 7Z archive first, then select the game image inside.</p>
+              <div class="download-meta"><span>Choose one source</span><span>USA · Decrypted image</span></div>
+              <p class="file-note">These downloads have not yet been gameplay-tested with the customized app.</p>
+            </article>
+          </section>
+
+          <details class="setup-guide" id="mh4u-azahar-setup">
+            <summary><span><svg><use href="#play"/></svg><span>Set up the customized Azahar app</span></span><svg class="expand-icon"><use href="#chevron"/></svg></summary>
+            <ol>
+              <li><strong>Install this edition’s APK.</strong><span>Use Download customized APK above. The Native port tab provides a different installer. For updates, save in-game and install over this edition without uninstalling or clearing its data.</span></li>
+              <li><strong>Prepare your game image.</strong><span>Choose either Ziperto or Romsfun above and select the USA version. For Romsfun, extract the downloaded <code>.zip</code> or <code>.7z</code> archive first, then use the decrypted MH4U <code>.3ds</code>, <code>.cci</code> or <code>.cxi</code> inside. Add game does not accept a main-game <code>.cia</code> or the compressed archive.</span></li>
+              <li><strong>Add the game.</strong><span>From Home, add your game and select the extracted game-image file, then tap Play game. A prepared native-port folder may contain a compatible <code>MH4U.cci</code>; select that file, not the entire folder or its native library.</span></li>
+              <li><strong>Choose a screen layout.</strong><span>Keep the small second screen visible for dialogue and quest choices. Adjust touch controls and combos, then tap Save &amp; play.</span></li>
+            </ol>
+            <p class="requirements"><strong>Using Ziperto’s three-part download?</strong> Download all three matching USA parts from the same set into one folder. Extract part 1 once; the extractor reads the remaining parts automatically. Add the resulting game image, not the separate parts.</p>
+            <p class="requirements">Add game copies the image into this app’s storage, so allow room for the imported copy too. You can remove the Downloads copy after a successful import. Normal play needs only the game; optional live FPS features require separate setup with a matching USA v1.3.0 update and code library.</p>
+            <p class="requirements">Ordinary emulation does not need the native port’s code library. The two apps use different runtimes and settings; their native libraries are not interchangeable. Performance depends on the phone.</p>
+          </details>
+          <details class="setup-guide">
+            <summary><span><svg><use href="#file"/></svg><span>Transfer progress between the two apps</span></span><svg class="expand-icon"><use href="#chevron"/></svg></summary>
+            <div class="guide-copy"><p>Save inside MH4U first. Export a copy from the source app and keep a backup of the destination’s progress.</p><p>In the customized app, open Settings → Saves → Import save → From another MH4U app. Enter the actual dated save folder containing <code>sdmc</code>, tap Use this folder, and review the confirmation. Import replaces the saved progress and restarts the app.</p><p>A compatible USA save was successfully transferred from Native to this app on a POCO F5. This is a manual transfer, not automatic sync. Control layouts belong to each app and do not transfer with game progress.</p></div>
+          </details>
+          <a class="source-link" data-link="azaharSource" href="https://github.com/Dling11/MH4-ULTIMATE" target="_blank" rel="noopener noreferrer"><span><svg><use href="#code"/></svg><span>Customized app · source code</span></span><svg><use href="#external"/></svg></a>
+          <p class="project-credits">Custom interface, controls and save tools by Rowell. Based on <a href="https://github.com/klark231/MH4U-Android" target="_blank" rel="noopener noreferrer">klark231 / MH4U-Android</a> and <a href="https://github.com/klark231/AzaharPlus" target="_blank" rel="noopener noreferrer">AzaharPlus</a>, building on Azahar and Citra. Thank you to the original developers and contributors. Game content belongs to CAPCOM.</p>
+        </section>
+        <dialog class="screenshot-dialog" id="mh4u-screenshot" aria-labelledby="screenshot-caption">
+          <div class="screenshot-toolbar"><p id="screenshot-caption">App screenshot</p><button type="button" data-close-screenshot>Close</button></div>
+          <img src="assets/mh4u-native-screen.webp" alt="Native port touch controls at its first-start setup screen" width="1200" height="540">
+        </dialog>
       </section>
       <!-- game:mh4u:end -->
 

@@ -13,6 +13,23 @@
       "provider": "APKVision",
       "url": "https://apkvision.org/games/monster-hunter-4-ultimate-135599/download/v0.1.8-obb/"
     },
-    "source": "https://github.com/khorne-hub/4u-native"
+    "source": "https://github.com/khorne-hub/4u-native",
+    "azahar": {
+      "provider": "Customized AzaharPlus app",
+      "version": "1.0.16",
+      "url": "https://github.com/Dling11/MH4-ULTIMATE/releases/download/rowell-1.0.16/Monster-Hunter-4-1.0.16.apk",
+      "source": "https://github.com/Dling11/MH4-ULTIMATE",
+      "game": {
+        "provider": "Ziperto",
+        "url": "https://www.ziperto.com/monster-hunter-4-ultimate-3ds-decrypted-rom/",
+        "method": "Download all three matching USA parts together and extract part 1.",
+        "gameplayVerified": false,
+        "fallback": {
+          "provider": "Romsfun",
+          "url": "https://romsfun.com/download/monster-hunter-4-ultimate-72059-42763/2",
+          "method": "Extract the downloaded USA ZIP or 7Z archive first, then select the decrypted .3ds, .cci or .cxi image."
+        }
+      }
+    }
   }
 }

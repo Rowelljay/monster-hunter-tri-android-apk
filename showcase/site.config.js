@@ -1,8 +1,8 @@
 // Public links for the local design showcase. No keys, payment details or game files are bundled.
 window.TRI_DOWNLOADS=Object.freeze({
   // Published APK and the owner-selected European/PAL game-file destination.
-  apk:'https://github.com/Dling11/monster_hunter_tri_emulator/releases/download/rowell-1.4.13-netfix2/MH3_Rowell_Dev-arm64.apk',
-  windows:'https://github.com/Dling11/monster_hunter_tri_emulator/releases/download/rowell-1.4.13/MH3-Rowell-Windows-x64.zip',
+  apk:'https://github.com/Dling11/monster_hunter_tri_emulator/releases/download/rowell-1.4.14/MH3_Rowell_Dev-arm64.apk',
+  windows:'https://github.com/Dling11/monster_hunter_tri_emulator/releases/download/rowell-1.4.14/MH3-Rowell-Windows-x64.zip',
   // Separate experimental ARM32 app; its verified release is approved independently.
   lowSpec:'https://rowell-mode-app.vercel.app/download/mh-tri-low-spec/android',
   game:'https://romsfun.com/download/monster-hunter-3-tri-id1-13483/2',

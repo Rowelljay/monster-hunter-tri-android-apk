@@ -91,14 +91,16 @@ The Native tab keeps its separate prepared game-folder instructions.
 
 ## Native Android links
 
-The `/mh4u/` page uses the original **khorne-hub 0.1.8 APK** verified during setup on a POCO F5:
+The `/mh4u/` page links the original **khorne-hub 0.1.9.1 APK**. Its published SHA-256, APK signature and package identity were checked against the official 0.1.8 build:
 
-- Direct APK: https://github.com/khorne-hub/4u-native/releases/download/v0.1.8/MH4U-0.1.8.apk
+- Direct APK: https://github.com/khorne-hub/4u-native/releases/download/v0.1.9.1/MH4U-0.1.9.1.apk
 - Original source and instructions: https://github.com/khorne-hub/4u-native
 - Release notes/updates: https://github.com/khorne-hub/4u-native/releases
 - Owner-selected game archive page: https://apkvision.org/games/monster-hunter-4-ultimate-135599/download/v0.1.8-obb/
 
-The APK button downloads from GitHub in one click. The separate archive button opens APKVision; it does not select APKVision's modified installer. APKs/game files are not hosted by this static site. The APK version is deliberately pinned to the tested setup; review its external native-library ID and code-changing mods before pointing the page to a newer build. Avoid silently routing visitors to a new version with incompatible game libraries.
+The APK button downloads from GitHub in one click. The separate archive button opens APKVision; it does not select APKVision's modified installer. APKs/game files are not hosted by this static site. Version 0.1.9.1 has the same package (`com.mh4u.native`), signing certificate and required game-library ID (`775bad2e95f15be4`) as 0.1.8. Its release notes support updating over the previous official app while retaining saves, settings and the code library; keep the existing game-folder link. Save in-game and export a backup before updating. This does not establish compatibility with differently signed third-party installers or arbitrary code-changing mods.
+
+The 0.1.9 update improves menu controls, save import, graphics and memory use; 0.1.9.1 fixes hidden-touch-screen flickering on older Mali and PowerVR drivers. See the [official release notes](https://github.com/khorne-hub/4u-native/releases/tag/v0.1.9.1). The new APK has passed artifact checks but has not yet been tested on our phone; the earlier installation footage and screenshots use 0.1.8. Some menus differ, and solo play now pauses in the settings menu.
 
 The guide covers extracting the prepared 7Z, choosing the actual game folder rather than the storage root, the Circle Pad Pro prompt, save backups and update/import behavior. This is an experimental port: startup was verified, but full quests, sustained FPS, save/reopen and multiplayer have not been verified for this setup. Both this native port and the older Azahar app run the 3DS game; they execute its CPU code differently.
 

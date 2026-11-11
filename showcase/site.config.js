@@ -29,7 +29,7 @@ window.HUNTER_GAMES=Object.freeze({
     description:'Monster Hunter 4 Ultimate on Android. Choose the native port or the customized Azahar edition, with separate setup guides and real app screenshots.',
     entry:'mh4u/',
     links:Object.freeze({
-      apk:'https://github.com/khorne-hub/4u-native/releases/download/v0.1.9.1/MH4U-0.1.9.1.apk',
+      apk:'https://github.com/khorne-hub/4u-native/releases/download/v0.1.9.2/MH4U-0.1.9.2.apk',
       game:'https://apkvision.org/games/monster-hunter-4-ultimate-135599/download/v0.1.8-obb/',
       source:'https://github.com/khorne-hub/4u-native',
       credits:'https://github.com/khorne-hub/4u-native#credits',

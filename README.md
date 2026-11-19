@@ -91,16 +91,16 @@ The Native tab keeps its separate prepared game-folder instructions.
 
 ## Native Android links
 
-The `/mh4u/` page links the original **khorne-hub 0.1.9.2 APK**. Its published SHA-256, APK signature and package identity were checked against the official 0.1.8 build:
+The `/mh4u/` page links the original **khorne-hub 1.0.1.1 APK**, released November 18, 2026. Its published SHA-256, APK signature and package identity were checked against the earlier official builds:
 
-- Direct APK: https://github.com/khorne-hub/4u-native/releases/download/v0.1.9.2/MH4U-0.1.9.2.apk
+- Direct APK: https://github.com/khorne-hub/4u-native/releases/download/v1.0.1.1/MH4U-1.0.1.1.apk
 - Original source and instructions: https://github.com/khorne-hub/4u-native
 - Release notes/updates: https://github.com/khorne-hub/4u-native/releases
 - Owner-selected game archive page: https://apkvision.org/games/monster-hunter-4-ultimate-135599/download/v0.1.8-obb/
 
-The APK button downloads from GitHub in one click. The separate archive button opens APKVision; it does not select APKVision's modified installer. APKs/game files are not hosted by this static site. Version 0.1.9.2 has the same package (`com.mh4u.native`), signing certificate and required game-library ID (`775bad2e95f15be4`) as 0.1.8. Its release notes support updating over the previous official app while retaining saves, settings and the code library; keep the existing game-folder link. Save in-game and export a backup before updating. This does not establish compatibility with differently signed third-party installers or arbitrary code-changing mods.
+The APK button downloads from GitHub in one click. The separate archive button opens APKVision; it does not select APKVision's modified installer. APKs/game files are not hosted by this static site. Version 1.0.1.1 retains package `com.mh4u.native` and the official signing certificate, and requires Android 9+ with ARM64 and Vulkan. The APK is 7,731,926 bytes; its SHA-256 is `40c68e4da06dde6274cd1c44f45701a381273b18a8e27e3b24a5a7ff822ca994`. Save in-game and export a backup before installing over the official app. Keep the existing game folder. When upgrading from an older release, follow any code-library rebuild prompt rather than assuming its old library is compatible. Differently signed third-party installers cannot be updated in place with this APK.
 
-The 0.1.9 update improves menu controls, save import, graphics and memory use; 0.1.9.1 fixes hidden-touch-screen flickering on older Mali and PowerVR drivers. Version 0.1.9.2 adds physical-controller combo assignments and shader-loading/performance logs. The single-screen mod expects the USA game in English. See the [official release notes](https://github.com/khorne-hub/4u-native/releases/tag/v0.1.9.2). The new APK has passed artifact checks but has not yet been tested on our phone; the earlier installation footage and screenshots use 0.1.8. Some menus differ, and solo play now pauses in the settings menu.
+Version 1.0.1.1 fixes the European-code gathering crash, improves bow targeting, monster names and phone-build progress, and adds optional Brick low-end mode, a PS1 filter and quick items. The 1.0 generation also adds phone-side code building, its own single-screen mode, control profiles, chat and friends. See the [official release notes](https://github.com/khorne-hub/4u-native/releases/tag/v1.0.1.1). This APK has passed artifact checks, not a physical-phone gameplay test. The existing tutorial footage/screenshots show earlier menus. Current save tools are under Gear → System → Your game; older versions used Menu Options.
 
 The guide covers extracting the prepared 7Z, choosing the actual game folder rather than the storage root, the Circle Pad Pro prompt, save backups and update/import behavior. This is an experimental port: startup was verified, but full quests, sustained FPS, save/reopen and multiplayer have not been verified for this setup. Both this native port and the older Azahar app run the 3DS game; they execute its CPU code differently.
 

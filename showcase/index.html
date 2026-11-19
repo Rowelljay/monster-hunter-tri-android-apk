@@ -129,11 +129,11 @@
           <div class="section-heading"><span class="step-number">1</span><h2>Get the Android app</h2></div>
           <article class="download-card app-card" aria-labelledby="mh4u-title">
             <div class="card-heading"><span class="step-label">OFFICIAL DEVELOPER APK</span><span class="release-label">Experimental</span></div>
-            <div class="card-title"><span class="type-icon"><svg><use href="#phone"/></svg></span><div><h2 id="mh4u-title">MH4U Native · 0.1.9.2</h2><p>By khorne-hub · Community port</p></div></div>
+            <div class="card-title"><span class="type-icon"><svg><use href="#phone"/></svg></span><div><h2 id="mh4u-title">MH4U Native · 1.0.1.1</h2><p>By khorne-hub · Community port</p></div></div>
             <ul class="features" aria-label="MH4U app features"><li>English app menus</li><li>Swipe camera</li><li>Editable touch controls</li></ul>
-            <a class="button primary-button" data-link="apk" href="https://github.com/khorne-hub/4u-native/releases/download/v0.1.9.2/MH4U-0.1.9.2.apk"><svg><use href="#download"/></svg><span>Download 0.1.9.2 APK</span></a>
-            <div class="download-meta"><span>Android 9+ · ARM64 · Vulkan</span><span>0.1.9.2 · ~6 MB</span></div>
-            <p class="compatibility-note">Official GitHub download. New in 0.1.9.2: controller combo mapping and more detailed logs. Existing 0.1.8 game files and code library remain compatible. Save in-game and export a backup before updating the official app. This experimental port may have bugs; performance varies by device. <a data-link="updates" href="https://github.com/khorne-hub/4u-native/releases" target="_blank" rel="noopener noreferrer">Release notes &amp; updates</a></p>
+            <a class="button primary-button" data-link="apk" href="https://github.com/khorne-hub/4u-native/releases/download/v1.0.1.1/MH4U-1.0.1.1.apk"><svg><use href="#download"/></svg><span>Download 1.0.1.1 APK</span></a>
+            <div class="download-meta"><span>Android 9+ · ARM64 · Vulkan</span><span>1.0.1.1 · ~7.7 MB</span></div>
+            <p class="compatibility-note">Official GitHub download. New in 1.0.1.1: a gathering crash fix, clearer phone-build progress and the lighter Brick graphics mode. Save in-game and export a backup, then install over the official app. When upgrading from an older version, follow any code-library rebuild prompt; the app can build it on your phone. This port is still in development. <a data-link="updates" href="https://github.com/khorne-hub/4u-native/releases" target="_blank" rel="noopener noreferrer">Release notes &amp; updates</a></p>
           </article>
 
           <article class="download-card game-card" aria-labelledby="mh4u-game-title">
@@ -152,14 +152,14 @@
             <li><strong>Install the official APK.</strong><span>Use the GitHub download above. This native app installs separately from the customized Azahar edition.</span></li>
             <li><strong>Extract the game archive.</strong><span>Use a 7Z-capable extractor. Put the extracted folder in normal phone storage, for example <code>MH4U_Native</code>, outside <code>Android/data</code>. Allow space for both the archive and its extracted files.</span></li>
             <li><strong>Choose the complete game folder.</strong><span>Open MH4U → Give permission and choose folder. Allow file access, return, then enter the folder containing <code>MH4U.cci</code>, <code>MH4U_update.cia</code>, <code>libmh4u_code_native.so</code>, its <code>.id</code> and <code>mods</code>. When it says “The game is here,” tap Use this folder. Select the folder itself, not the archive or the storage root.</span></li>
-            <li><strong>Start the game.</strong><span>Wait for preparation to finish. Choose No when asked about the Nintendo 3DS Circle Pad Pro attachment; the app handles swipe-camera and controller input itself.</span></li>
+            <li><strong>Prepare the code and start.</strong><span>If the app asks for a matching code library, tap Build on this phone and follow its prompts. This can take time and needs extra free space; the first build downloads tools. Choose No when asked about the Nintendo 3DS Circle Pad Pro attachment; the app handles camera input itself.</span></li>
           </ol>
-          <p class="requirements">The USA game, 1.3.0 update and code library must match this native app and its code-changing mods. A newer APK may need a newly generated library. The developer’s <a href="https://github.com/khorne-hub/4u-native#setup" target="_blank" rel="noopener noreferrer">full setup guide</a> explains the required files and how to build the library.</p>
+          <p class="requirements">The game, its update and code library must match this app and its code-changing mods. Older tutorial footage shows the previous menus. Version 1.0+ can build the library on the phone and includes its own single-screen mode; keep any existing mods together with the game. See the developer’s <a href="https://github.com/khorne-hub/4u-native#setup" target="_blank" rel="noopener noreferrer">current setup guide</a> for required files, space and build steps.</p>
         </details>
 
         <details class="setup-guide mh4u-help">
           <summary><span><svg><use href="#file"/></svg><span>Keeping your progress when updating</span></span><svg class="expand-icon"><use href="#chevron"/></svg></summary>
-          <div class="guide-copy"><p>Save inside the game first. In Gear → Menu Options → Export save, make a backup before updating. An official update with the same app identity and signing key normally keeps its data; uninstalling or clearing app data removes app-owned saves.</p><p>Progress from an older Azahar-based app needs a separate save import. Use a copy of your save through Import save; its control settings belong to the older app.</p></div>
+          <div class="guide-copy"><p>Save inside the game first. In Gear → System → Your game → Export save, make a backup before updating (older versions use Menu Options → Export save). Install the official APK over the existing official app to keep its data. Uninstalling or clearing app data removes app-owned saves; keep your game folder.</p><p>Progress from an older Azahar-based app needs a separate save import. Use a copy of your save through Import save; its control settings belong to the older app.</p></div>
         </details>
 
         <details class="setup-guide mh4u-help">

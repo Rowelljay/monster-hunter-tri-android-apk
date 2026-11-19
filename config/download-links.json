@@ -6,8 +6,8 @@
   "mh4u": {
     "apk": {
       "provider": "khorne-hub / GitHub",
-      "version": "0.1.9.2",
-      "url": "https://github.com/khorne-hub/4u-native/releases/download/v0.1.9.2/MH4U-0.1.9.2.apk"
+      "version": "1.0.1.1",
+      "url": "https://github.com/khorne-hub/4u-native/releases/download/v1.0.1.1/MH4U-1.0.1.1.apk"
     },
     "game": {
       "provider": "APKVision",

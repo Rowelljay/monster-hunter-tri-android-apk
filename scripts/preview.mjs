@@ -11,7 +11,7 @@ const root = resolve(dirname(fileURLToPath(import.meta.url)), '..', production?'
 const host = '127.0.0.1';
 const port = Number(process.env.PORT || (previewMH4?4198:4188));
 const types = { '.html': 'text/html; charset=utf-8', '.css': 'text/css; charset=utf-8', '.js': 'text/javascript; charset=utf-8', '.svg': 'image/svg+xml', '.png': 'image/png', '.jpg': 'image/jpeg', '.jpeg': 'image/jpeg', '.webp': 'image/webp', '.ico': 'image/x-icon' };
-const allowed = new Set(['index.html', 'styles.css', 'app.js', 'site.config.js']);
+const allowed = new Set(['index.html', 'styles.css', 'app.js', 'site.config.js', 'mh3u/index.html', 'mh3u/styles.css']);
 
 const server = http.createServer(async (request, response) => {
   try {
@@ -27,7 +27,8 @@ const server = http.createServer(async (request, response) => {
       const entry=config.games[id].entry;
       return config.games[id].visible&&(pathname===entry||pathname===`${entry}index.html`||(entry&&pathname===entry.slice(0,-1)));
     });
-    const requested=gameId?'index.html':pathname;
+    const standalone = pathname === 'mh3u' || pathname === 'mh3u/';
+    const requested = gameId ? 'index.html' : standalone ? 'mh3u/index.html' : pathname;
     const segments = requested.split('/');
     if (segments.some(segment => segment === '..' || segment.startsWith('.')) || requested.includes('\\') || requested.includes('\0')
       || (!allowed.has(requested) && !requested.startsWith('assets/')) || !types[extname(requested).toLowerCase()]) {

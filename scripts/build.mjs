@@ -34,4 +34,9 @@ async function assets(directory){for(const entry of await readdir(directory,{wit
  else if(entry.isFile()){const target=join(output,relative(source,file));await mkdir(dirname(target),{recursive:true});await copyFile(file,target);}
 }}
 await assets(join(source,'assets'));
+const standalone = 'mh3u';
+await mkdir(join(output, standalone), {recursive:true});
+for (const name of ['index.html', 'styles.css']) {
+ await copyFile(join(source, standalone, name), join(output, standalone, name));
+}
 console.log('Static page built in dist/. Nothing was uploaded.');

@@ -1,0 +1,78 @@
+:root {
+  color-scheme: dark;
+  font-family: system-ui, sans-serif;
+  color: #edf4f3;
+  background: #0a171f;
+  --gold: #f0cb86;
+  --muted: #b8cbd0;
+  --line: #30505a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+  margin: 0;
+  min-height: 100vh;
+  padding: clamp(14px, 5vw, 50px);
+  background: radial-gradient(ellipse at top, #1d4250, #0a171f 65%);
+}
+
+.download-card {
+  width: min(100%, 42rem);
+  margin-inline: auto;
+  padding: clamp(18px, 5vw, 34px);
+  border: 1px solid var(--line);
+  border-radius: 20px;
+  background: #112731;
+  box-shadow: 0 18px 55px #061319a6;
+}
+
+.card-header { text-align: center; }
+.game-logo {
+  display: block;
+  width: min(100%, 14rem);
+  height: auto;
+  margin: 0 auto .55rem;
+}
+
+h1 {
+  margin: 0;
+  font-size: clamp(1.5rem, 4.8vw, 2.1rem);
+  line-height: 1.15;
+  text-wrap: balance;
+}
+
+.card-header p { margin: .5rem 0 1.35rem; color: var(--muted); }
+a { color: var(--gold); text-underline-offset: .18em; }
+a:focus-visible { outline: 2px solid #fff3ce; outline-offset: 4px; }
+
+.download {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: .35rem 1rem;
+  min-height: 3.35rem;
+  padding: .8rem .95rem;
+  border: 1px solid transparent;
+  border-radius: 10px;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.2;
+  text-decoration: none;
+}
+.download span { font-size: .875rem; font-weight: 600; white-space: nowrap; }
+.primary { color: #18190f; background: var(--gold); }
+.primary:hover { background: #ffe0a2; }
+.secondary { color: #e1f2f6; border-color: #537f89; background: #193744; }
+.secondary:hover { background: #244657; }
+.label { margin: .4rem 0 1rem; color: var(--muted); font-size: .875rem; }
+
+.setup { padding-top: 1rem; border-top: 1px solid var(--line); }
+.setup h2 { margin: 0; font-size: 1.15rem; }
+.setup ol { margin: .75rem 0; padding-inline-start: 1.35rem; }
+.setup li { padding-inline-start: .15rem; margin-bottom: .45rem; line-height: 1.55; }
+.setup li::marker { color: var(--gold); }
+.setup p { margin: .75rem 0 0; }
+code { font-size: .95em; }
+footer { color: var(--muted); font-size: .875rem; margin-top: 1.15rem; }
